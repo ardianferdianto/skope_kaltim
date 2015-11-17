@@ -28,14 +28,14 @@
           </div>
           
        <?php echo $form->end();?>
-        <button id="page_subm" class="btn btn-primary">Simpan</button>
+        <button id="page_subm" class="btn btn-primary">Simpan (or Ctrl+S)</button>
         <script>
         
           CKEDITOR.config.allowedContent = true;
           CKEDITOR.replace('rich_ed' ,{
-  filebrowserBrowseUrl : '<?php echo $this->webroot;?>js/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
-  filebrowserUploadUrl : '<?php echo $this->webroot;?>js/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
-  filebrowserImageBrowseUrl : '<?php echo $this->webroot;?>js/filemanager/dialog.php?type=1&editor=ckeditor&fldr='});
+          filebrowserBrowseUrl : '<?php echo $this->webroot;?>js/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+          filebrowserUploadUrl : '<?php echo $this->webroot;?>js/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+          filebrowserImageBrowseUrl : '<?php echo $this->webroot;?>js/filemanager/dialog.php?type=1&editor=ckeditor&fldr='});
 
           
      /*   $('.buttonexplorer').fancybox({

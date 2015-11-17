@@ -39,7 +39,7 @@ button[disabled], input[disabled], select[disabled] {
 <hr>
 <input type="text" id="kelompok" placeholder="Masukan Nama kelompok">
 <button id="join-room">Join Room</button>
-<button id="open-or-join-room">Auto Open Or Join Room</button>
+<!-- <button id="open-or-join-room">Auto Open Or Join Room</button> -->
 <hr>
 <div id="chat-container">
     <!-- <input type="text" id="input-text-chat" placeholder="Enter Text Chat" disabled> -->
@@ -66,11 +66,18 @@ connection.sdpConstraints.mandatory = {
 // .......................UI Code........................
 // ......................................................
 document.getElementById('join-room').onclick = function() {
+    connection.disconnect();
+    connection.leave();
+    var nama=$('#kelompok').val();
+    if(nama===''){
+        alert('Mohon isi nama kelompok anda');
+        return;
+    }
     this.disabled = true;
     //connection.openOrJoin(document.getElementById('room-id').value);
     //connection.connectSocket(function(socket) {
 
-    connection.userid=$('#kelompok').val();
+    connection.userid='xtz-'+nama;
     connection.session = {
         audio: true,
         video: true,
@@ -85,10 +92,10 @@ document.getElementById('join-room').onclick = function() {
     connection.connect('server_room2');
 };
 
-document.getElementById('open-or-join-room').onclick = function() {
+/*document.getElementById('open-or-join-room').onclick = function() {
     this.disabled = true;
     connection.openOrJoin(document.getElementById('room-id').value);
-};
+};*/
 
 // ......................................................
 // ................FileSharing/TextChat Code.............

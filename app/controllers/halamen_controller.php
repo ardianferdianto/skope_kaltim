@@ -738,8 +738,11 @@ class HalamenController extends AppController {
 		$lesson=$this->Halaman->Lesson->read(null, $id);
 		$this->kosongin(WWW_ROOT.DS.'wow_book/files/*');
 		$servername=$_SERVER['SERVER_NAME'];
+		//echo $_SERVER['DOCUMENT_ROOT'];
+		$url = $_SERVER['REQUEST_URI']; //returns the current URL
+		$parts = explode('/',$url);
 		foreach ($isi as $item) {
-				$source=$this->getContents($item['Halaman']['content'],'http://'.$servername.'/skope_kaltim/app/webroot/','"');
+				$source=$this->getContents($item['Halaman']['content'],'http://'.$servername.'/'.$parts[1].'/app/webroot/','"');
 				$count=$item['Halaman']['order'];
 				$count=0;
 				foreach ($source as $row) {
@@ -749,7 +752,7 @@ class HalamenController extends AppController {
 					copy( WWW_ROOT.$row, WWW_ROOT."wow_book/files/".$row);
 					$count++;
 				}
-				$source2=$this->getContents($item['Halaman']['content'],'src="/skope_kaltim/files/image_mikroskop/','"');
+				$source2=$this->getContents($item['Halaman']['content'],'src="/'.$parts[1].'/files/image_mikroskop/','"');
 				foreach ($source2 as $row2) {
 					//echo $count.' '.$row."</br>";
 
@@ -757,7 +760,7 @@ class HalamenController extends AppController {
 					mkdir(dirname(WWW_ROOT."wow_book/files/image_mikroskop/".$row2), 0777, true);
 					copy( WWW_ROOT."files/image_mikroskop/".$row2, WWW_ROOT."wow_book/files/image_mikroskop/".$row2);
 				}
-				$source3=$this->getContents($item['Halaman']['content'],'src="/skope_kaltim/files/video_mikroskop/','"');
+				$source3=$this->getContents($item['Halaman']['content'],'src="/'.$parts[1].'/files/video_mikroskop/','"');
 				foreach ($source3 as $row2) {
 					//echo $count.' '.$row."</br>";
 
@@ -848,9 +851,9 @@ class HalamenController extends AppController {
 				</div>';
 			foreach ($isi as $item){
 				//$this->getContents($item['Halaman']['content'],'http://localhost/skope/app/webroot/','"')
-				$item['Halaman']['content']=str_replace("http://".$servername."/skope_kaltim/app/webroot/", "files/", $item['Halaman']['content']);
-				$item['Halaman']['content']=str_replace("/skope_kaltim/files/image_mikroskop/", "files/image_mikroskop/", $item['Halaman']['content']);
-				$item['Halaman']['content']=str_replace("/skope_kaltim/files/video_mikroskop/", "files/video_mikroskop/", $item['Halaman']['content']);
+				$item['Halaman']['content']=str_replace("http://".$servername."/".$parts[1]."/app/webroot/", "files/", $item['Halaman']['content']);
+				$item['Halaman']['content']=str_replace("/".$parts[1]."/files/image_mikroskop/", "files/image_mikroskop/", $item['Halaman']['content']);
+				$item['Halaman']['content']=str_replace("/".$parts[1]."/files/video_mikroskop/", "files/video_mikroskop/", $item['Halaman']['content']);
 				$isifeature.='<div class="echo">
 									<div class="contenttextbook nano">
 										<div class="nano-content">

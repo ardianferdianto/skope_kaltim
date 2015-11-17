@@ -284,7 +284,38 @@
         }
       });
   }
+  $.ctrl = function(key, callback, args) {
+      $(document).keydown(function(e) {
+          if(!args) args=[]; // IE barks when args is null 
+          if(e.keyCode == key.charCodeAt(0) && e.ctrlKey) {
+              callback.apply(this, args);
+              return false;
+          }
+      });        
+  };
+  $.ctrl('S', function() {
+      CKupdate();
+      //alert($page_id);
+      $.ajax({
+            type: "POST",
+            url: "<?php echo $this->webroot; ?>halamen/edit_pages/"+$page_id,
+            data: $("#pages_ed").serialize(),
+            beforeSend: function() {
+                $('#step1_createnew').fadeOut();
+            },
+            success: function(data) {
+                html_ajax("<?php echo $this->webroot; ?>halamen/view_pages/"+$page_id);
+                //$('#step1_createnew').html(data);
+                $('#edit') .show();
+                $('#delete') .show();
+                
+                cek_pages();
+                //$('#step1_createnew').fadeIn("slow");
+            }
 
+        })
+      alert("Data Disimpan");
+  });
 
   
 

@@ -107,12 +107,12 @@
     <script src="<?php echo $this->webroot;?>skope_node/dev/FileBufferReader.js"></script>
 
     <!-- socket.io for signaling -->
-    <script src="http://192.168.1.132:9001/socket.io/socket.io.js"></script>
+    <script src="http://localhost:9001/socket.io/socket.io.js"></script>
     <script>
 
         var connection = new RTCMultiConnection();
         //var socket=io.connect('http://localhost:9001/');
-        connection.socketURL = 'http://192.168.1.132:9001';
+        connection.socketURL = 'http://localhost:9001';
         var socket = connection.getSocket();
         function appendDIV(event) {
             $.notify("Message from server "+event.data);
