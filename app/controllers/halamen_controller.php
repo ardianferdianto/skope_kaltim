@@ -353,7 +353,11 @@ class HalamenController extends AppController {
 		$this->set('useridcam',$id);
 		$this->layout = 'default_view';
 	}
-	
+	function hasil(){
+		$listLesson=$this->Halaman->Lesson->find('all');
+		$this->set('listLesson', $listLesson);
+		$this->layout ='default_blank';
+	}
 	function cari($pelajaranId=null, $kelasId=null){
 		$this->Halaman->recursive = 2;
 		

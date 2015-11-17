@@ -8,7 +8,37 @@
 	echo $javascript->link('jplist.pagination-bundle.min.js');
 	echo $javascript->link('jquery.fancybox.pack.js');
 ?>
+<style>
+	.notifyjs-foo-base {
+	  opacity: 0.85;
+	  width: 200px;
+	  background: #F5F5F5;
+	  padding: 5px;
+	  border-radius: 10px;
+	}
 
+	.notifyjs-foo-base .title {
+	  width: 100px;
+	  float: left;
+	  margin: 10px 0 0 10px;
+	  text-align: right;
+	}
+
+	.notifyjs-foo-base .buttons {
+	  width: 70px;
+	  float: right;
+	  font-size: 9px;
+	  padding: 5px;
+	  margin: 2px;
+	}
+
+	.notifyjs-foo-base button {
+	  font-size: 9px;
+	  padding: 5px;
+	  margin: 2px;
+	  width: 60px;
+	}
+</style>
 <?php if(empty($pelajaranId)):?>
 <nav class="navbar navbar-fixed-top navbarcaripenelitian">
 	<div href="#" class="mainmenuleft">
@@ -125,7 +155,7 @@
 						<div class="pageBtn">
 							<a class="btn btn-primary glyphicon glyphicon-play" title="View" href="<?php echo $this->webroot; ?>lessons/view/<?php echo $item['Lesson']['id'] ?>"></a>
 							<a class="btn btn-warning glyphicon glyphicon-edit" title="Edit" href="<?php echo $this->webroot; ?>halamen/write/<?php echo $item['Lesson']['id'] ?>"></a>
-							<a class="btn btn-danger glyphicon glyphicon-remove-sign" title="Delete" href="<?php echo $this->webroot; ?>lessons/delete/<?php echo $item['Lesson']['id'] ?>"></a>
+							<a class="btn btn-danger glyphicon glyphicon-remove-sign" title="Delete" href="#" data-deletes="<?php echo $item['Lesson']['id'] ?>"></a>
 							<a class="btn btn-info glyphicon glyphicon-download-alt" title="Download" data-donlod="<?php echo $item['Lesson']['id'] ?>" href="#"></a>
 						</div>
 					</li>
@@ -169,6 +199,39 @@
 		,itemPath: '.list-item' 
 		,panelPath: '.jplist-panel'	
 	});
+//styling notify
+	$.notify.addStyle('foo', {
+	  html: 
+	    "<div>" +
+	      "<div class='clearfix' style='color: black;'>" +
+	        "<div class='title' data-notify-html='title'/>" +
+	        "<div class='buttons'>" +
+	          "<button class='no' style='background: lightcoral;'>Cancel</button>" +
+	          "<button class='yes' data-notify-text='button' style='background: aquamarine;'></button>" +
+	        "</div>" +
+	      "</div>" +
+	    "</div>"
+	});
+
+	//listen for click events from this style
+	$(document).on('click', '.notifyjs-foo-base .no', function() {
+	  //programmatically trigger propogating hide event
+		//alert($del);
+		$(this).trigger('notify-hide');
+	});
+	$(document).on('click', '.notifyjs-foo-base .yes', function() {
+		//show button text
+		$.ajax({
+			url: "<?php echo $this->webroot;?>lessons/delete/"+$del,
+			dataType: 'html',
+			success: function(result){
+				window.location.reload(true);
+			}
+		});
+		//hide notification
+		$(this).trigger('notify-hide');
+	});
+
 
 	$("#filtermapel").on("change",function(e){
 		var alamatmapel=$("#filtermapel").val();
@@ -249,6 +312,19 @@
 				$('#jplistpaging').fadeIn();
 			}
 		});
+	});
+	$("#jplistpaging").on("click",'.btn.btn-danger.glyphicon.glyphicon-remove-sign',function(){
+		//alert('aaa');
+		$del=$(this).data("deletes");
+		$.notify({
+		  title: 'Yakin akan menghapus file ?',
+		  button: 'Confirm'
+		}, { 
+		  style: 'foo',
+		  autoHide: false,
+		  clickToHide: false
+		});
+		
 	});
 	var windowheight = $( window ).height();
 	$( ".mainmenuleft" ).hover(
