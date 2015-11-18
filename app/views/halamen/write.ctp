@@ -8,11 +8,11 @@
   </div>
 </div>
 
-<div class="inner cover animsition">
-  <div style="right: 0">
-    <a class="btn btn-primary glyphicon glyphicon-play filtering" title="View" href="<?php echo $this->webroot; ?>lessons/view/<?php echo $halamanID ?>" style="margin-right: -89.5em;"></a>
-    <a class="btn btn-success glyphicon glyphicon-home filtering" title="Awal" href="<?php echo $this->webroot; ?>" style="right: -83em;"></a>
-      
+<div class="inner cover animsition" style="position:relative;">
+  <div style="position:absolute;top:-40px;right:0;">
+    <a class="btn btn-info glyphicon glyphicon-chevron-left filtering" title="Kembali" href="<?php echo $this->webroot; ?>halamen/cari" style=""></a>
+    <a class="btn btn-success glyphicon glyphicon-home filtering" title="Awal" href="<?php echo $this->webroot; ?>" style=""></a>
+    <a class="btn btn-primary glyphicon glyphicon-play filtering" title="View" href="<?php echo $this->webroot; ?>lessons/view/<?php echo $halamanID ?>" style=""></a>
     </div>
   <div class="row" id="createnew_panel">
     <div class="col-md-3 leftpanel">
@@ -35,9 +35,11 @@
       <div id="step1_createnew" class="wizard_createnew" >
        
       </div>
-
+      <br/>
       <button id="edit" class="btn btn-primary" style="display:none;" >Edit</button>
       <button id="delete" class="btn btn-warning" style="display:none;" >Delete</button>
+      <br/>
+      <br/>
     </div>
     <div class="pollSlider" style="display:none;right:-50px;"></div>
   </div>
@@ -264,7 +266,7 @@
           var hitung=0;
           console.log(data);
           for (var i=0; i<data.length; i++){
-              $('.col-md-3.leftpanel.pages').append('<span class="sortabledrag" id="item-'+data[i]['Halaman']['id']+'"><button class="btn btn-white bt-pages" data-order="'+i+'" data-pageid="'+data[i]['Halaman']['id']+'"><p><h4>'+data[i]['Halaman']['deskripsi_halaman']+'</h4></p><p class="hal">Page '+( parseInt(i)+1)+'</p></button></span>');
+              $('.col-md-3.leftpanel.pages').append('<span class="sortabledrag" id="item-'+data[i]['Halaman']['id']+'"><button class="btn btn-white bt-pages" data-order="'+i+'" data-pageid="'+data[i]['Halaman']['id']+'"><p><h4>'+data[i]['Halaman']['deskripsi_halaman']+'</h4></p><p class="hal">Hal: '+( parseInt(i)+1)+'</p></button></span>');
               hitung++
             //}
           }

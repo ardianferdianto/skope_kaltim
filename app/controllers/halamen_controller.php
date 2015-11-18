@@ -484,6 +484,7 @@ class HalamenController extends AppController {
 		$kelas=$this->Halaman->Grade->find('list',array('fields'=>'Grade.title'));
 		$this->set('kelasID',$kelas);
 		$this->set('contentdisplay','content');
+		$this->set('positionnav','editordisplay');
 	}
 	function write($id){
 		$this->Halaman->recursive = 2;
@@ -515,7 +516,9 @@ class HalamenController extends AppController {
 			$this->set('pelajaranlist',$pel);
 		}
 		$this->set('halamanID',$id);
+
 		$this->set('contentdisplay','content');
+		$this->set('positionnav','editordisplay');
 	}
 	function edit_title($id){
 		$this->Halaman->recursive = 1;

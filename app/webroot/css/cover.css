@@ -229,11 +229,14 @@ span.desc_menu_home{
   margin-bottom: 0.3em;
 }
 #showcam{margin-top: 80px;}
-
+#createnew_panel{
+  margin-top: 250px;
+}
 #createnew_panel .leftpanel{
   background: #f9f4dd;  
   height: 600px;
   border: 1px solid #b4af9a;
+
 }
 
 #createnew_panel .rightpanel{
