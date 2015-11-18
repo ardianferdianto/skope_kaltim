@@ -6232,3 +6232,13 @@
 2015-11-18 22:02:11 Debug: Here: /skope_kaltim/halamen/cari, coming from: /
 2015-11-18 22:02:15 Debug: Here: /skope_kaltim/halamen/createnew, coming from: /halamen/cari
 
+2015-11-18 22:08:14 Debug: Here: /skope_kaltim/halamen/cari, coming from: /
+2015-11-18 22:08:19 Debug: Here: /skope_kaltim/, coming from: /halamen/cari
+2015-11-18 22:08:25 Debug: Here: /skope_kaltim/halamen/showcam, coming from: /
+2015-11-18 22:08:35 Debug: Here: /skope_kaltim/halamen/cari, coming from: /
+2015-11-18 22:08:41 Debug: Here: /skope_kaltim/lessons/view/251, coming from: /halamen/cari
+2015-11-18 22:08:55 Debug: Here: /skope_kaltim/halamen/write/251, coming from: /lessons/view/251
+2015-11-18 22:08:56 Debug: Here: /skope_kaltim/halamen/explorer, coming from: /halamen/write/251
+2015-11-18 22:08:56 Debug: Here: /skope_kaltim/halamen/pages/251, coming from: /halamen/write/251
+2015-11-18 22:08:59 Debug: Here: /skope_kaltim/halamen/view_pages/163, coming from: /halamen/write/251
+2015-11-18 22:09:01 Debug: Here: /skope_kaltim/halamen/edit_pages/163, coming from: /halamen/write/251

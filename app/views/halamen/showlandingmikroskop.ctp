@@ -300,7 +300,7 @@ $(document).on('click', '#video_choosed',function(e){
             var videoInserted = '<video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" ><source src="<?php echo $this->webroot;?>source/SKOPE/video_mikroskop/'+imageinserted+'" type="video/webm"></video>';
 
 
-            var toencode ='<cke:video controls="controls" poster="<?php echo $this->webroot;?>/art/smicro/video-preview-default.png" id="video<?php echo $varrecorder;?>"><cke:source src="<?php echo $this->webroot;?>files/video_mikroskop/'+imageinserted+'" type="video/webm"><cke:source src="<?php echo $this->webroot;?>files/video_mikroskop/'+imageinserted+'" type="video/webm"></cke:source></cke:source></cke:video>';
+            var toencode ='<cke:video controls="controls" poster="<?php echo $this->webroot;?>/art/smicro/video-preview-default.png" id="video<?php echo $varrecorder;?>"><cke:source src="<?php echo $this->webroot;?>source/SKOPE/video_mikroskop/'+imageinserted+'" type="video/webm"><cke:source src="<?php echo $this->webroot;?>source/SKOPE/video_mikroskop/'+imageinserted+'" type="video/webm"></cke:source></cke:source></cke:video>';
 
 
             var encoded = encodeURIComponent(toencode);
