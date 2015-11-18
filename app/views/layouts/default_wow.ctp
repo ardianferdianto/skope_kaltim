@@ -48,10 +48,10 @@
 <body>
 	<div class="container-fluid">
 		<div class="makecenter">
-		<a class="btn btn-warning glyphicon glyphicon-chevron-left" title="Kembali" href="javascript:history.back()"></a>
+		<a class="btn btn-warning glyphicon glyphicon-chevron-left" title="Kembali" href="<?php echo $this->webroot; ?>halamen/cari"></a>
 
 		<a class="btn btn-danger glyphicon glyphicon-edit" title="Edit" href="<?php echo $this->webroot; ?>halamen/write/<?php echo $lessonEdit; ?>"></a>
-		<a class="btn btn-info glyphicon glyphicon-th" title="Cari" href="<?php echo $this->webroot; ?>halamen/cari"></a>
+		<!-- <a class="btn btn-info glyphicon glyphicon-th" title="Cari" href="<?php echo $this->webroot; ?>halamen/cari"></a> -->
 		<a class="btn btn-success glyphicon glyphicon-home" title="Awal" href="<?php echo $this->webroot; ?>"></a>
 		<a class="btn btn-primary glyphicon glyphicon-plus" title="Buat" href="<?php echo $this->webroot; ?>halamen/createnew"></a>
 		<a class="btn btn-warning glyphicon glyphicon-search" title="Mikroskop" href="<?php echo $this->webroot; ?>halamen/showcam"></a>

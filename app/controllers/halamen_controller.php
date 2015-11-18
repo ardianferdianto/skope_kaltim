@@ -18,13 +18,13 @@ class HalamenController extends AppController {
 		$ext=substr($bahan, -3);
 		if ($ext=='pdf') {
 			# code..
-			$path=WWW_ROOT."source/FILE_REFERENSI/LIBRARY/referensi".time().".".$ext;
+			$path=WWW_ROOT."source/FILE_REFERENSI/LIBRARY/PDF/referensi".time().".".$ext;
 		} else if($ext == "jpg" or $ext == "png" or $ext == "gif"){
 			# code...
-			$path=WWW_ROOT."source/FILE_REFERENSI/GAMBAR/referensi".time().".".$ext;
+			$path=WWW_ROOT."source/FILE_REFERENSI/LIBRARY/GAMBAR/referensi".time().".".$ext;
 		}
 		else{
-			$path=WWW_ROOT."source/FILE_REFERENSI/VIDEO/referensi".time().".".$ext;
+			$path=WWW_ROOT."source/FILE_REFERENSI/LIBRARY/DLL/referensi".time().".".$ext;
 		}
 		
 		//$path=WWW_ROOT."source/image_mikroskop/share-file".$ext;
@@ -354,7 +354,11 @@ class HalamenController extends AppController {
 		$this->set('useridcam',$id);
 		$this->layout = 'default_view';
 	}
-	
+	function hasil(){
+		$listLesson=$this->Halaman->Lesson->find('all');
+		$this->set('listLesson', $listLesson);
+		$this->layout ='default_blank';
+	}
 	function cari($pelajaranId=null, $kelasId=null){
 		$this->Halaman->recursive = 2;
 		
@@ -691,7 +695,7 @@ class HalamenController extends AppController {
 		$data = str_replace(' ', '+', $data);
 		$data = base64_decode($data);
 		$uniqfilename = uniqid().'.png';
-		$file = WWW_ROOT.DS.'files'.DS.'image_mikroskop'.DS. $uniqfilename;
+		$file = WWW_ROOT.DS.'source'.DS.'SKOPE'.DS.'image_mikroskop'.DS. $uniqfilename;
 		$success = file_put_contents($file, $data);
 		$this->set('urlimage',$uniqfilename);
 		$this->layout = 'default_blank';
@@ -702,7 +706,7 @@ class HalamenController extends AppController {
 		    if (isset($_FILES["${type}-blob"])) {
 
 		        $fileName = $_POST["${type}-filename"];
-		        $uploadDirectory = WWW_ROOT.DS.'files'.DS.'video_mikroskop'.DS.$fileName;
+		        $uploadDirectory = WWW_ROOT.DS.'source'.DS.'SKOPE'.DS.'video_mikroskop'.DS.$fileName;
 
 		        if (!move_uploaded_file($_FILES["${type}-blob"]["tmp_name"], $uploadDirectory)) {
 		            echo(" problem moving uploaded file");
@@ -753,21 +757,21 @@ class HalamenController extends AppController {
 					copy( WWW_ROOT.$row, WWW_ROOT."wow_book/files/".$row);
 					$count++;
 				}
-				$source2=$this->getContents($item['Halaman']['content'],'src="/'.$parts[1].'/files/image_mikroskop/','"');
+				$source2=$this->getContents($item['Halaman']['content'],'src="/'.$parts[1].'/source/SKOPE/image_mikroskop/','"');
 				foreach ($source2 as $row2) {
 					//echo $count.' '.$row."</br>";
 
 					$row2=trim(str_replace("%20", " ", $row2));
 					mkdir(dirname(WWW_ROOT."wow_book/files/image_mikroskop/".$row2), 0777, true);
-					copy( WWW_ROOT."files/image_mikroskop/".$row2, WWW_ROOT."wow_book/files/image_mikroskop/".$row2);
+					copy( WWW_ROOT."source/SKOPE/image_mikroskop/".$row2, WWW_ROOT."wow_book/files/image_mikroskop/".$row2);
 				}
-				$source3=$this->getContents($item['Halaman']['content'],'src="/'.$parts[1].'/files/video_mikroskop/','"');
+				$source3=$this->getContents($item['Halaman']['content'],'src="/'.$parts[1].'/source/SKOPE/video_mikroskop/','"');
 				foreach ($source3 as $row2) {
 					//echo $count.' '.$row."</br>";
 
 					$row2=trim(str_replace("%20", " ", $row2));
 					mkdir(dirname(WWW_ROOT."wow_book/files/video_mikroskop/".$row2), 0777, true);
-					copy( WWW_ROOT."files/video_mikroskop/".$row2, WWW_ROOT."wow_book/files/video_mikroskop/".$row2);
+					copy( WWW_ROOT."source/SKOPE/video_mikroskop/".$row2, WWW_ROOT."wow_book/files/video_mikroskop/".$row2);
 				}
 				//var_dump($source);
 
@@ -853,8 +857,8 @@ class HalamenController extends AppController {
 			foreach ($isi as $item){
 				//$this->getContents($item['Halaman']['content'],'http://localhost/skope/app/webroot/','"')
 				$item['Halaman']['content']=str_replace("http://".$servername."/".$parts[1]."/app/webroot/", "files/", $item['Halaman']['content']);
-				$item['Halaman']['content']=str_replace("/".$parts[1]."/files/image_mikroskop/", "files/image_mikroskop/", $item['Halaman']['content']);
-				$item['Halaman']['content']=str_replace("/".$parts[1]."/files/video_mikroskop/", "files/video_mikroskop/", $item['Halaman']['content']);
+				$item['Halaman']['content']=str_replace("/".$parts[1]."/source/SKOPE/image_mikroskop/", "files/image_mikroskop/", $item['Halaman']['content']);
+				$item['Halaman']['content']=str_replace("/".$parts[1]."/source/SKOPE/video_mikroskop/", "files/video_mikroskop/", $item['Halaman']['content']);
 				$isifeature.='<div class="echo">
 									<div class="contenttextbook nano">
 										<div class="nano-content">

@@ -148,7 +148,7 @@ $(document).on('click', '#gambar_choosed',function(e){
             e.preventDefault();
             var imageinserted = datatoinsert;
             //$.fancybox.close();
-            var html = '<img src="<?php echo $this->webroot;?>files/image_mikroskop/'+imageinserted+'" width="200"/>';
+            var html = '<img src="<?php echo $this->webroot;?>source/SKOPE/image_mikroskop/'+imageinserted+'" width="200"/>';
             var oEditor = CKEDITOR.instances.rich_ed;
             console.log(oEditor);
             CKEDITOR.instances.rich_ed.insertHtml(html);
@@ -297,9 +297,11 @@ $(document).on('click', '#video_choosed',function(e){
             e.preventDefault();
             var imageinserted = videotoinsert;
             //$.fancybox.close();
-            var videoInserted = '<video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" ><source src="<?php echo $this->webroot;?>files/video_mikroskop/'+imageinserted+'" type="video/webm"></video>';
+            var videoInserted = '<video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" ><source src="<?php echo $this->webroot;?>source/SKOPE/video_mikroskop/'+imageinserted+'" type="video/webm"></video>';
+
 
             var toencode ='<cke:video controls="controls" poster="<?php echo $this->webroot;?>/art/smicro/video-preview-default.png" id="video<?php echo $varrecorder;?>"><cke:source src="<?php echo $this->webroot;?>files/video_mikroskop/'+imageinserted+'" type="video/webm"><cke:source src="<?php echo $this->webroot;?>files/video_mikroskop/'+imageinserted+'" type="video/webm"></cke:source></cke:source></cke:video>';
+
 
             var encoded = encodeURIComponent(toencode);
             

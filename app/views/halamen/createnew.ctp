@@ -42,8 +42,8 @@
               <label for="exampleInputEmail1">Kelas</label>
               <select type="text" class="form-control" name="data[Lesson][grade_id]" id="LessonTitle">
                 <?php foreach ($kelasID as $pelajaran ):?>
-                  <option value="<?php echo $pelajaran['title'] ?>">
-                    <?php echo $pelajaran['title'] ?>
+                  <option value="<?php echo $pelajaran;?>">
+                    <?php echo $pelajaran;?>
                   </option>
                 <?php endforeach; ?>
               </select>

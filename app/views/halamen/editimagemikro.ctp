@@ -142,7 +142,7 @@ function loadImage(){
 
     
     base_image = new Image();
-    base_image.src = '<?php echo $this->webroot;?>files/image_mikroskop/<?php echo $imageurl;?>';
+    base_image.src = '<?php echo $this->webroot;?>source/SKOPE/image_mikroskop/<?php echo $imageurl;?>';
 
     base_image.onload = function() {
         context.drawImage(base_image, 0, 0);
@@ -185,7 +185,7 @@ function inserttoCKEditor(imagefilename){
 
     var imageinserted = imagefilename;
     //$.fancybox.close();
-    var html = '<img src="<?php echo $this->webroot;?>files/image_mikroskop/'+imageinserted+'" width="200"/>';
+    var html = '<img src="<?php echo $this->webroot;?>source/SKOPE/image_mikroskop/'+imageinserted+'" width="200"/>';
     var oEditor = CKEDITOR.instances.rich_ed;
     console.log(oEditor);
     CKEDITOR.instances.rich_ed.insertHtml(html);
