@@ -300,9 +300,20 @@
   		//alert( "Handler for .submit() called." );
   		event.preventDefault();
 	});
+
+	function loadings(texts){
+		i = 0;
+		text = "Preparing environment";
+		setInterval(function() {
+		    $("#loading").html(text+Array((++i % 4)+1).join("."));
+		    if (i===10) text = texts;
+		}, 250);	
+	}
 	$("#jplistpaging").on("click",'.btn.btn-info.glyphicon.glyphicon-download-alt',function(){
 		var lesid=$(this).data("donlod");
-		$('#jplistpaging').html('<h3>Generating download link....</h3>')
+		$('#jplistpaging').html('<img src="<?php echo $this->webroot;?>images/gears.gif" width="80px">');
+		$('#jplistpaging').append('<h3 id="loading"></h3>');
+		loadings('Generating link');
 		$.ajax({
 			url: "<?php echo $this->webroot; ?>halamen/download/"+lesid,
 			dataType: 'html',
