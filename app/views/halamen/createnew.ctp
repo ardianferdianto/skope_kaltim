@@ -1,16 +1,26 @@
 <div class="masthead clearfix">
   <div class="inner">
-   <h1 class="cover-heading">
-    <span style="color:#40c4ff;font-size:7em;">SKO</span><span style="color:#fdd734;font-size:7em;">PE</span><br/>
-    theSMARTMICROSCOPE</h1>
+  
   </div>
 </div>
 
-<div class="inner cover animsition">
+<div class="inner cover animsition" style="position:relative;">
+  <img class="logosmallleft" style="top: -60px;left: 110px;" src="<?php echo $this->webroot?>art/smicro_new/logo-skope-small1.png">
+   <div style="position:absolute;top:-70px;right:0;">
+    
+    <ul class="navbarleftskope" style="width:450px;">
+    <li>
+      <a href="<?php echo $this->webroot;?>"><img src="<?php echo $this->webroot;?>art/smicro/home_btn.png"></a>
+      <a href="<?php echo $this->webroot;?>halamen/createnew"><img src="<?php echo $this->webroot;?>art/smicro/create_btn.png"></a>
+      <a href="<?php echo $this->webroot;?>halamen/cari"><img src="<?php echo $this->webroot;?>art/smicro/browse_btn.png"></a>
+      <a href="<?php echo $this->webroot;?>halamen/showcam"><img src="<?php echo $this->webroot;?>art/smicro/search_btn.png"></a>
+    </li>
+    </ul>
+  </div>
 
   <div class="row" id="createnew_panel">
     <div class="col-md-3 leftpanel">
-
+      <img class="" style="margin-top:100px;" src="<?php echo $this->webroot?>art/smicro/identity_guide.png">
     </div>
     <div class="col-md-9 rightpanel">
       <div class="title_container_createnew">
@@ -52,10 +62,10 @@
             <div class="form-group clearfix">
               <label for="exampleInputEmail1">Warna Cover</label>
                 <select type="text" class="form-control" name="data[Lesson][color]" id="colorselector">
-                  <option value="yellow" data-color="#CCBF06">Kuning</option>
-                  <option value="blue" data-color="#206da1">Biru</option>
-                  <option value="green" data-color="#08a613">Hijau</option>
-                  <option value="grey" data-color="#969084">Abu-abu</option>
+                  <option value="yellow" data-color="#FF924A">Kuning</option>
+                  <option value="blue" data-color="#1BBDBF">Biru</option>
+                  <option value="green" data-color="#82C671">Hijau</option>
+                  <option value="grey" data-color="#A499B7">Ungu</option>
                 </select>
                 </div>
           </div>

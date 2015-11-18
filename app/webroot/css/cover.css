@@ -230,7 +230,7 @@ span.desc_menu_home{
 }
 #showcam{margin-top: 80px;}
 #createnew_panel{
-  margin-top: 250px;
+  margin-top: 300px;
 }
 #createnew_panel .leftpanel{
   background: #f9f4dd;  
@@ -337,8 +337,9 @@ html#contentdisplayed .mastfoot p{
   text-align: right;
 }
 .navbarcaripenelitian{
-  background: rgba(255,255,255,1); 
+  background: rgba(255,255,255,0.9); 
   padding-top: 25px;
+  border-bottom: 1px solid #000;
 }
 .logosmallleft{
   top:10px;
@@ -424,8 +425,11 @@ html#contentdisplayed .mastfoot p{
 }
 .navbarleftskope{
   float: right;
-  width: 377px;
+  width: 380px;
   margin-top: -20px;
+}
+.navbarleftskope li{
+  list-style-type: none;
 }
 .navbarleftskope li a{
   margin-left: 10px;

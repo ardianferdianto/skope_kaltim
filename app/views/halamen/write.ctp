@@ -9,11 +9,18 @@
 </div>
 
 <div class="inner cover animsition" style="position:relative;">
-  <div style="position:absolute;top:-40px;right:0;">
-    <a class="btn btn-info glyphicon glyphicon-chevron-left filtering" title="Kembali" href="<?php echo $this->webroot; ?>halamen/cari" style=""></a>
-    <a class="btn btn-success glyphicon glyphicon-home filtering" title="Awal" href="<?php echo $this->webroot; ?>" style=""></a>
-    <a class="btn btn-primary glyphicon glyphicon-play filtering" title="View" href="<?php echo $this->webroot; ?>lessons/view/<?php echo $halamanID ?>" style=""></a>
-    </div>
+  <img class="logosmallleft" style="top: -60px;left: 110px;" src="<?php echo $this->webroot?>art/smicro_new/logo-skope-small1.png">
+  <div style="position:absolute;top:-70px;right:0;">
+    
+    <ul class="navbarleftskope" >
+    <li>
+      <a href="<?php echo $this->webroot;?>"><img src="<?php echo $this->webroot;?>art/smicro/home_btn.png"></a>
+      <a href="<?php echo $this->webroot;?>halamen/createnew"><img src="<?php echo $this->webroot;?>art/smicro/create_btn.png"></a>
+      <a href="<?php echo $this->webroot;?>halamen/cari"><img src="<?php echo $this->webroot;?>art/smicro/browse_btn.png"></a>
+      <a href="<?php echo $this->webroot;?>halamen/showcam"><img src="<?php echo $this->webroot;?>art/smicro/search_btn.png"></a>
+    </li>
+    </ul>
+  </div>
   <div class="row" id="createnew_panel">
     <div class="col-md-3 leftpanel">
       <button class="btn btn-white bt-title">

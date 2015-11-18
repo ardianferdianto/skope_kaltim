@@ -1,6 +1,6 @@
 <div class="feaature bk-book book-1 bk-bookdefault viewlesson">
 	<div class="bk-front">
-        <div class="bk-cover">
+        <div class="bk-cover <?php echo $lesson['Lesson']['color'];?>">
             <h2>
                 <span><?php echo $lesson['Lesson']['author']?></span>
                 <span style="text-transform:uppercase;"><?php echo $lesson['Lesson']['title']?></span><br/>
@@ -65,7 +65,7 @@ if ($countpages % 2 == 0) :?>
   
 <div class='feature'>
 	<div class="bk-front">
-        <div class="bk-cover" style="background-color:#f7914f;">
+        <div class="bk-cover <?php echo $lesson['Lesson']['color'];?>">
             <img style="margin-top:120px;" src="<?php echo $this->webroot;?>art/smicro/backcover.png">
         </div>
         <div class="bk-cover-back"></div>
@@ -90,7 +90,7 @@ if ($countpages % 2 == 0) :?>
 <div class='feature'>
 
 	<div class="bk-front">
-        <div class="bk-cover" style="background-color:#f7914f;">
+        <div class="bk-cover <?php echo $lesson['Lesson']['color'];?>">
             <img style="margin-top:120px;" src="<?php echo $this->webroot;?>art/smicro/backcover.png">
         </div>
         <div class="bk-cover-back"></div>
