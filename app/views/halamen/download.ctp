@@ -1,1 +1,2 @@
-<a class="btn btn-info glyphicon glyphicon-download-alt" title="Download" href="<?php echo $this->webroot?>file.zip"> Download Disini</a>
+<a class="btn btn-info glyphicon glyphicon-download-alt" id="download" title="Download" href="<?php echo $this->webroot?>file.zip"> Download Disini</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-info glyphicon glyphicon glyphicon-triangle-left" title="back" href="<?php echo $this->webroot?>halamen/cari"> Kembali</a>

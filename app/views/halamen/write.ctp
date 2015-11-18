@@ -22,7 +22,7 @@
       <div class="col-md-3 leftpanel pages">
         
       </div>
-      <a href="<?php echo $this->webroot;?>" class="btn btn-success btn-lg">SIMPAN</a>
+      <a href="<?php echo $this->webroot;?>halamen/cari" class="btn btn-success btn-lg">SIMPAN</a>
     </div>
     <div class="col-md-9 rightpanel" style="left: 0%;">
       <button id="commandpanel" class="btn btn-primary glyphicon glyphicon-menu-left" title="hide panel"> Tampilkan referensi</button>

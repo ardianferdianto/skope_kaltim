@@ -847,3 +847,8 @@
 2015-11-16 15:06:39 Warning: Warning (512): Cache not configured properly. Please check Cache::config(); in APP/config/core.php in [CORE/cake/libs/configure.php, line 663]
 2015-11-16 15:06:39 Warning: Warning (2): array_merge() [<a href='http://php.net/function.array-merge'>function.array-merge</a>]: Argument #1 is not an array in [CORE/cake/libs/configure.php, line 684]
 2015-11-16 15:06:39 Warning: Warning (2): array_merge() [<a href='http://php.net/function.array-merge'>function.array-merge</a>]: Argument #1 is not an array in [CORE/cake/libs/configure.php, line 691]
+2015-11-18 14:37:53 Warning: Warning (512): Cache not configured properly. Please check Cache::config(); in APP/config/core.php in [CORE/cake/libs/configure.php, line 663]
+2015-11-18 14:37:53 Warning: Warning (2): array_merge() [<a href='http://php.net/function.array-merge'>function.array-merge</a>]: Argument #1 is not an array in [CORE/cake/libs/configure.php, line 684]
+2015-11-18 14:37:53 Warning: Warning (2): array_merge() [<a href='http://php.net/function.array-merge'>function.array-merge</a>]: Argument #1 is not an array in [CORE/cake/libs/configure.php, line 691]
+2015-11-18 14:37:53 Warning: Warning (2): Illegal string offset 'title' in [APP/views/halamen/createnew.ctp, line 45]
+2015-11-18 14:37:53 Warning: Warning (2): Illegal string offset 'title' in [APP/views/halamen/createnew.ctp, line 46]
