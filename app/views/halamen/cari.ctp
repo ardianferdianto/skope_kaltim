@@ -11,9 +11,17 @@
 
 <?php if(empty($pelajaranId)):?>
 <nav class="navbar navbar-fixed-top navbarcaripenelitian">
+	<ul class="navbarleftskope">
+	<li>
+		<a href="<?php echo $this->webroot;?>"><img src="<?php echo $this->webroot;?>art/smicro/home_btn.png"></a>
+		<a href="<?php echo $this->webroot;?>halamen/createnew"><img src="<?php echo $this->webroot;?>art/smicro/create_btn.png"></a>
+		<a href="<?php echo $this->webroot;?>halamen/cari"><img src="<?php echo $this->webroot;?>art/smicro/browse_btn.png"></a>
+		<a href="<?php echo $this->webroot;?>halamen/showcam"><img src="<?php echo $this->webroot;?>art/smicro/search_btn.png"></a>
+	</li>
+	</ul>
 	<div href="#" class="mainmenuleft">
-		<span class="glyphicon glyphicon-align-justify icon"></span>
-		<div id="nav_left_stick">
+		<!--<span class="glyphicon glyphicon-align-justify icon"></span>-->
+		<!--<div id="nav_left_stick">
 			<ul>
 				<li>
 					<a href="<?php echo $this->webroot?>halamen/home">
@@ -54,10 +62,10 @@
 				</li>
 
 			</ul>
-		</div>
+		</div>-->
 	</a>
-	<img class="logosmallleft" src="<?php echo $this->webroot?>art/smicro_new/logo-skope-small1.png">
-	<div class="container row center-block" style="width:1000px">
+	<!--<img class="logosmallleft" src="<?php echo $this->webroot?>art/smicro_new/logo-skope-small1.png">-->
+	<div class="container row center-block" id="navfilter" style="width:1000px">
 
 		<div class="form-group col-xs-3">
 		<?php
@@ -111,8 +119,8 @@
 					<li>
 						<div class="coverDesign <?php echo $item['Lesson']['color'] ?>">
 							<span class="ribbon">kls.<?php echo $item['Lesson']['grade_id'] ?></span>
-							<h1><?php echo $item['Lesson']['author'] ?></h1>
-							<p><?php echo $item['Lesson']['title'] ?></p>
+							<h1><?php echo $item['Lesson']['title'] ?></h1>
+							<p><?php echo $item['Lesson']['author'] ?></p>
 						</div>
 					</li>
 					<li></li>
@@ -280,7 +288,22 @@
 	);
 
 
+
+	$( ".navbarleftskope ul li a img" ).hover(
+		
+	  function() {
+	  	$(this).transition({ scale: 1.2 }, 200,'bounce');
+	    
+
+	  }, function() {
+	  	$(this).transition({ scale: 1 }, 200,'bounce');
+	    
+	  }
+	);
+
 	
 		
 	
 </script>
+
+

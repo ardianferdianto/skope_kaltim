@@ -48,6 +48,7 @@ class HalamenController extends AppController {
 	function home(){
 		$variabelsidebar = 'taufiq keren';
 		$this->set('variabelsidebar',$variabelsidebar);
+		$this->set('positionnav','halamanhome');
 	}
 	function home2(){
 		$variabelsidebar = 'taufiq keren';

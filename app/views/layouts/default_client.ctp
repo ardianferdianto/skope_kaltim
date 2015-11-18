@@ -177,9 +177,10 @@
           
           <?php echo $content_for_layout;?>
                     <div class="mastfoot">
-            <!-- <div class="inner">
-              <p>SKOPE dibuat di Indonesia dengan agsfsfgsgasafgsagf.</p>
-            </div> -->
+            <p> Hak cipta dan seluruh konten dilindungi undang undang atas nama
+                <br/>PT. Ide Hasama Indonesia &#169; 2015 made with love in Indonesia
+              </p>
+              <img src="<?php echo $this->webroot?>art/smicro_new/hasama_logo.png">
           </div>
         </div>
       </div>

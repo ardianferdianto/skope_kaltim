@@ -1,6 +1,7 @@
 <?php 
 
 ?>
+
 <div class="masthead clearfix">
   <div class="inner">
    
@@ -324,3 +325,10 @@
   });*/
 
 </script>
+
+<style>
+img.cke_video{
+  width:400px;
+  height: 260px;
+}
+</style>

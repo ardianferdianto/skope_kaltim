@@ -124,7 +124,7 @@
     
   </head>
 
-  <body id="">
+  <body id="<?php echo $positionnav;?>">
 
     <div class="site-wrapper animsition">
 
@@ -139,7 +139,9 @@
           <?php echo $content_for_layout;?>
             <div class="mastfoot">
               
-              <p> Hak cipta dilindungi undang undang atas nama <br/>PT.Ide Hasama Indonesia</p>
+              <p> Hak cipta dan seluruh konten dilindungi undang undang atas nama
+                <br/>PT. Ide Hasama Indonesia &#169; 2015 made with love in Indonesia
+              </p>
               <img src="<?php echo $this->webroot?>art/smicro_new/hasama_logo.png">
               
             <!-- <div class="inner">

@@ -57,7 +57,7 @@
 </div>
 
 <div class="col-md-4 animsition">
-      <a href="halamen/cari" id="browse" class="home_button_main"><span class="glyphicon glyphicon-th icon_home" aria-hidden="true"></span><br/>
+      <a href="<?php echo $this->webroot;?>halamen/cari" id="browse" class="home_button_main"><span class="glyphicon glyphicon-th icon_home" aria-hidden="true"></span><br/>
         <span>CARI <br/>PENELITIAN</span>
       </a>
 </div>

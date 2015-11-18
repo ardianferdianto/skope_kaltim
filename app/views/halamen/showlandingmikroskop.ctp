@@ -299,12 +299,12 @@ $(document).on('click', '#video_choosed',function(e){
             //$.fancybox.close();
             var videoInserted = '<video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" ><source src="<?php echo $this->webroot;?>files/video_mikroskop/'+imageinserted+'" type="video/webm"></video>';
 
-            var toencode ='<cke:video controls="controls" poster="http://localhost/skope/app/webroot/source/6.png" id="video<?php echo $varrecorder;?>"><cke:source src="<?php echo $this->webroot;?>files/video_mikroskop/'+imageinserted+'" type="video/webm"><cke:source src="<?php echo $this->webroot;?>files/video_mikroskop/'+imageinserted+'" type="video/webm"></cke:source></cke:source></cke:video>';
+            var toencode ='<cke:video controls="controls" poster="<?php echo $this->webroot;?>/art/smicro/video-preview-default.png" id="video<?php echo $varrecorder;?>"><cke:source src="<?php echo $this->webroot;?>files/video_mikroskop/'+imageinserted+'" type="video/webm"><cke:source src="<?php echo $this->webroot;?>files/video_mikroskop/'+imageinserted+'" type="video/webm"></cke:source></cke:source></cke:video>';
 
             var encoded = encodeURIComponent(toencode);
             
 
-            var toinserted = '<img class="cke_video" data-cke-realelement="'+encoded+'" data-cke-real-node-type="1" alt="Video" title="Video" align="" src="" data-cke-real-element-type="video" style="width: 320px; height: 240px; background-image: url(http://localhost/skope/app/webroot/source/6.png);">';
+            var toinserted = '<img class="cke_video" data-cke-realelement="'+encoded+'" data-cke-real-node-type="1" alt="Video" title="Video" align="" src="" data-cke-real-element-type="video" style="width: 320px; height: 240px; background-image: url(<?php echo $this->webroot;?>/art/smicro/video-preview-default.png);">';
             
 
             
