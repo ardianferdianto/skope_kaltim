@@ -19,10 +19,28 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 				extraStyles.backgroundImage = 'url(' + value + ')';
 				break;
 			case 'width':
-				extraStyles.width = value + 'px';
+				value=parseInt(value);
+				if(value>400){
+					alert('width = '+value);
+					value=400;
+					var tes=value.toString();
+					extraStyles.width = tes + 'px';
+				}else{
+					extraStyles.width = value.toString() + 'px';	
+				}
+				
 				break;
 			case 'height':
-				extraStyles.height = value + 'px';
+				value=parseInt(value);
+				if(value>350){
+					alert('height = '+value);
+					value=350;
+					var tes=value.toString();
+					extraStyles.height = tes + 'px';
+				}else{
+					extraStyles.height = value.toString() + 'px';	
+				}
+				
 				break;
 		}
 	}

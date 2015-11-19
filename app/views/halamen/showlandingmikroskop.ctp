@@ -282,14 +282,14 @@ $(document).on('click', '#video_choosed',function(e){
                 request.onreadystatechange = function () {
                     if (request.readyState == 4 && request.status == 200) {
                         videotoinsert = request.responseText;
-                        
+                        $('.insertvideomikroskop').show();
                         //callback(location.href + request.responseText);
                     }
                 };
                 request.open('POST', url);
                 request.send(data);
             }
-            setTimeout(function(){ $('.insertvideomikroskop').show(); }, 2000);
+            //setTimeout(function(){ $('.insertvideomikroskop').show(); }, 2000);
             
         });
 
