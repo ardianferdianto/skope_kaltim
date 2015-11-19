@@ -143,7 +143,7 @@
 <?php endif;?>
 	<?php if(!empty($listLesson)):?>
 	<ul class="align list">
-		<?php 
+		<?php
 		foreach ($listLesson as $item ): ?>
 		<li class="list-item" id="bukutampilan_<?php echo $item['Lesson']['id'] ?>">
 			<figure class='book'>
@@ -151,7 +151,7 @@
 				<ul class='hardcover_front'>
 					<li>
 						<div class="coverDesign <?php echo $item['Lesson']['color'] ?>">
-							<span class="ribbon">kls.<?php echo $item['Lesson']['grade_id'] ?></span>
+							<span class="ribbon">kls.<?php echo $item['Grade']['title'] ?></span>
 							<h1><?php echo $item['Lesson']['title'] ?></h1>
 							<p><?php echo $item['Lesson']['author'] ?></p>
 						</div>

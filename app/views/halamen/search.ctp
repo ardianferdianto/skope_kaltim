@@ -9,9 +9,9 @@
 		<ul class='hardcover_front'>
 			<li>
 				<div class="coverDesign <?php echo $item['Lesson']['color'] ?>">
-					<span class="ribbon">kls.<?php echo $item['Lesson']['grade_id'] ?></span>
-					<h1><?php echo $item['Lesson']['author'] ?></h1>
-					<p><?php echo $item['Lesson']['title'] ?></p>
+					<span class="ribbon">kls.<?php echo $item['Grade']['title'] ?></span>
+					<h1><?php echo $item['Lesson']['title'] ?></h1>
+					<p><?php echo $item['Lesson']['author'] ?></p>
 				</div>
 		</li>
 			<li></li>

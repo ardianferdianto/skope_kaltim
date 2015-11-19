@@ -10,7 +10,7 @@ class Lesson extends AppModel {
 	   	),
 		'Grade' => array(
 	      'className' => 'Grade',
-	      'foreignKey'=> 'id'
+	      'foreignKey'=> 'grade_id'
 	   	),
 	);
 

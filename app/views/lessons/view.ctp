@@ -18,7 +18,7 @@
                 <!--<span><?php echo $lesson['Lesson']['author']?></span>-->	
                 <h1 style="text-transform:uppercase;font-size:43px;"><?php echo $lesson['Lesson']['title']?></h1>
                 <span style="font-size:1em;font-family:arial,helvetica;margin-top:10px;display:block;"><?php echo $lesson['Lesson']['description']?></span>
-            	<p style="margin-top:150px;display:block;font-weight:bold;font-size:1.1em;"><?php echo $lesson['Pelajaran']['nama']?> - <?php echo $lesson['Lesson']['grade_id']?></p>
+            	<p style="margin-top:150px;display:block;font-weight:bold;font-size:1.1em;"><?php echo $lesson['Pelajaran']['nama']?> - <?php echo $lesson['Grade']['details']?></p>
             	<br/>
             	<p style="font-weight:normal;margin-top:20px;display:block;">dibuat oleh:
             	</p>

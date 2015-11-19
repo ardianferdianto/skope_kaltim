@@ -2,6 +2,7 @@
 
 ?>
 
+
 <div class="masthead clearfix">
   <div class="inner">
    
@@ -37,6 +38,11 @@
       <div class="title_container_createnew">
         <h1 class="title_createnew"> Menulis Penelitian </h1>
         <p>Selamat datang di modul penulisan penelitian, untuk menambah halaman penelitian silahkan klik (+) disamping </p>
+
+        <div id="buttoneditontop">
+          <button id="" class="btn btn-primary edithalaman" style="display:none;" >Edit</button>
+          <button id="" class="btn btn-warning deletehalaman" style="display:none;" >Delete</button>
+        </div>
       </div>
 
       <button id="livepreview" class="btn btn-info glyphicon glyphicon-new-window" title="hide panel"> Preview Penelitian</button>
@@ -45,8 +51,8 @@
        
       </div>
       <br/>
-      <button id="edit" class="btn btn-primary" style="display:none;" >Edit</button>
-      <button id="delete" class="btn btn-warning" style="display:none;" >Delete</button>
+      <button id="edit" class="btn btn-primary edithalaman" style="display:none;" >Edit</button>
+      <button id="delete" class="btn btn-warning deletehalaman" style="display:none;" >Delete</button>
       <br/>
       <br/>
     </div>
@@ -98,8 +104,8 @@
   });
 
   $('.bt-title').on("click",function(){
-    $('#edit') .hide();
-    $('#delete') .hide();
+    $('.edithalaman') .hide();
+    $('.deletehalaman') .hide();
     $('#step1_createnew').html('<h5>Tunggu....</h5>');
     html_ajax("<?php echo $this->webroot; ?>halamen/edit_title/<?php echo $halamanID;?>");
     
@@ -134,8 +140,8 @@
             success: function(data) {
                 html_ajax("<?php echo $this->webroot; ?>halamen/view_pages/"+$page_id);
                 //$('#step1_createnew').html(data);
-                $('#edit') .show();
-                $('#delete') .show();
+                $('.edithalaman') .show();
+                $('.deletehalaman') .show();
                 
                 cek_pages();
                 //$('#step1_createnew').fadeIn("slow");
@@ -155,8 +161,8 @@
                 $('#step1_createnew').fadeOut();
             },
             success: function(data) {
-                $('#edit').hide();
-                $('#delete').hide();
+                $('.edithalaman').hide();
+                $('.deletehalaman').hide();
                 cek_pages();  
             }
 
@@ -167,22 +173,22 @@
       var page_ord=$(this).data('order');
       $('#step1_createnew').html('<h5>Tunggu....</h5>');
       html_ajax("<?php echo $this->webroot; ?>halamen/view_pages/"+$page_id);
-      $('#edit') .show();
-      $('#delete').show();
+      $('.edithalaman') .show();
+      $('.deletehalaman').show();
   });
   $('.col-md-3.leftpanel.pages').on("click","#tambahpage",function() {
       var halaman=$('#tambahpage').data('lasts');
       console.log(halaman);
       html_ajax("<?php echo $this->webroot;?>halamen/add_pages/<?php echo $halamanID;?>/"+halaman);
-      $('#edit').hide();
-      $('#delete').hide();
+      $('.edithalaman').hide();
+      $('.deletehalaman').hide();
   });
-  $('#edit').on("click",function() {
+  $('.edithalaman').on("click",function() {
       html_ajax("<?php echo $this->webroot; ?>halamen/edit_pages/"+$page_id);
-      $('#edit') .hide();
-      $('#delete').hide();
+      $('.edithalaman') .hide();
+      $('.deletehalaman').hide();
   });
-   $('#delete').on("click",function() {
+   $('.deletehalaman').on("click",function() {
       if (confirm("Are you sure?")) {
         $.ajax({
           url: "<?php echo $this->webroot; ?>halamen/delete_pages/"+$page_id,
@@ -192,8 +198,8 @@
           }
         });
       }
-      $('#edit') .hide();
-      $('#delete').hide();
+      $('.edithalaman') .hide();
+      $('.deletehalaman').hide();
   });
 
   window.staterightside = 'notshown';
@@ -203,12 +209,12 @@
     if(window.staterightside == 'notshown'){
       
       showsidebar();
-      $('#filemanger_left_ico').hide();
+      //$('#filemanger_left_ico').hide();
 
     }else{
 
       hidesidebar();
-      $('#filemanger_left_ico').show();
+      //$('#filemanger_left_ico').show();
     }
   });
 
@@ -332,8 +338,8 @@
             success: function(data) {
                 html_ajax("<?php echo $this->webroot; ?>halamen/view_pages/"+$page_id);
                 //$('#step1_createnew').html(data);
-                $('#edit') .show();
-                $('#delete') .show();
+                $('.edithalaman') .show();
+                $('.deletehalaman') .show();
                 
                 cek_pages();
                 //$('#step1_createnew').fadeIn("slow");

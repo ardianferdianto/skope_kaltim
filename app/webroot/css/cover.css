@@ -265,7 +265,7 @@ h1.title_createnew{
 }
 .title_container_createnew{
   border-bottom: 1px solid #dbcc98;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   padding-top: 20px;
 }
 #home_previewpenelitian{
@@ -453,4 +453,9 @@ html#contentdisplayed .mastfoot p{
   color: #000;
   background-color: rgba(255,255,255,1);
   text-shadow:none;
+}
+
+
+#buttoneditontop{
+ 
 }
