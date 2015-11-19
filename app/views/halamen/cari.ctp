@@ -11,16 +11,16 @@
 <style>
 	.notifyjs-foo-base {
 	  opacity: 0.85;
-	  width: 200px;
+	  width: 250px;
 	  background: #F5F5F5;
 	  padding: 5px;
 	  border-radius: 10px;
 	}
 
 	.notifyjs-foo-base .title {
-	  width: 100px;
+	  width: 120px;
 	  float: left;
-	  margin: 10px 0 0 10px;
+	  margin: 17px 0 0 10px;
 	  text-align: right;
 	}
 
@@ -408,6 +408,12 @@
 		
 	
 </script>
+
+<div id="preview_left_ico" style="width:220px;">
+  <img src="<?php echo $this->webroot;?>art/smicro/prev_mikro.png">
+  <span>&nbsp;PREVIEW MIKROSKOP</span>
+  
+</div>
 
 <div id="filemanger_left_ico" style="width:250px;">
   <img src="<?php echo $this->webroot;?>art/smicro/file_mangerico.png">

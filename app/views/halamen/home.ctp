@@ -51,20 +51,20 @@
 
   <div class="row" id="mainmenu" style="margin-right:-130px;">
     <div class="col-md-4 animsition">
-      <a href="<?php echo $this->webroot;?>halamen/createnew" id="makenew" class="home_button_main"><span class="glyphicon glyphicon-plus icon_home" aria-hidden="true"></span><br/>
+      <a href="<?php echo $this->webroot;?>halamen/createnew" id="makenew" class="home_button_main" data-animsition-out="fade-out-up" data-animsition-out-duration="1000"><span class="glyphicon glyphicon-plus icon_home" aria-hidden="true"></span><br/>
         <span>BUAT <br/>PENELITIAN</span>
       </a>
 </div>
 
 <div class="col-md-4 animsition">
-      <a href="<?php echo $this->webroot;?>halamen/cari" id="browse" class="home_button_main"><span class="glyphicon glyphicon-th icon_home" aria-hidden="true"></span><br/>
+      <a href="<?php echo $this->webroot;?>halamen/cari" id="browse" class="home_button_main" data-animsition-out="fade-out-up" data-animsition-out-duration="1000"><span class="glyphicon glyphicon-th icon_home" aria-hidden="true"></span><br/>
         <span>CARI <br/>PENELITIAN</span>
       </a>
 </div>
 
 <div class="col-md-4 animsition">
-      <a href="<?php echo $this->webroot;?>halamen/showcam" id="preview" class="home_button_main animsition-link" data-animsition-out="fade-out-up" data-animsition-out-duration="1000"><span class="glyphicon glyphicon-search icon_home" aria-hidden="true"></span><br/>
-        <span>PREVIEW <br/>MIKROSKOP</span>
+      <a href="<?php echo $this->webroot;?>halamen/showcam" id="preview" class="home_button_main animsition-link" data-animsition-out="fade-out-up" data-animsition-out-duration="1000"><span class="glyphicon glyphicon-blackboard icon_home" aria-hidden="true"></span><br/>
+        SCREENCAST &<br/> CONFERENCE</span></span>
       </a>
 </div>
   </div>
@@ -75,5 +75,11 @@
 <div id="filemanger_left_ico">
   <img src="<?php echo $this->webroot;?>art/smicro/file_mangerico.png">
   <span>&nbsp;FILE MANAGER / SERVER</span>
+  
+</div>
+
+<div id="preview_left_ico">
+  <img src="<?php echo $this->webroot;?>art/smicro/prev_mikro.png">
+  <span>&nbsp;PREVIEW MIKROSKOP</span>
   
 </div>

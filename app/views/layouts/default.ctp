@@ -220,7 +220,37 @@
           href : '<?php echo $this->webroot; ?>js/filemanager/dialog.php'
           
         }); //fancybox
-      })
+      });
+
+
+      $('#preview_left_ico').on('click',function(e){
+        e.preventDefault();
+        $.fancybox({
+          type: 'ajax',
+          width:'95%',
+          height:'95%',
+          autoSize: false,
+          content: '<div id="prevpage"></div>',
+          beforeShow : function(){
+              $.ajax({
+                type: "GET",
+                dataType: "html",
+                cache: false,
+                url: "<?php echo $this->webroot;?>halamen/preview_mikro", // preview.php
+                //data: $("#postp").serializeArray(), // all form fields
+                success: function (data) {
+                  $('#prevpage').append(data);
+                  
+                } // success
+              }); // ajax
+          }
+          
+          //href : '<?php echo $this->webroot; ?>halamen/preview_mikro'
+          
+        }); //fancybox
+      });
+
+      
     </script>
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

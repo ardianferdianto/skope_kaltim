@@ -265,8 +265,38 @@
           href : '<?php echo $this->webroot; ?>js/filemanager/dialog.php'
           
         }); //fancybox
-      })
+      });
+
+      $('#preview_left_ico').on('click',function(e){
+        e.preventDefault();
+        $.fancybox({
+          type: 'ajax',
+          width:'95%',
+          height:'95%',
+          autoSize: false,
+          content: '<div id="prevpage"><div style="display:block;"><img src="<?php echo $this->webroot;?>art/smicro/prev_mikro.png">&nbsp;<h3 style="display:inline-block;">PREVIEW MIKROSKOP</h3></div></div>',
+          beforeShow : function(){
+              $(".fancybox-skin").css("backgroundColor","#384047");
+              $.ajax({
+                type: "GET",
+                dataType: "html",
+                cache: false,
+                url: "<?php echo $this->webroot;?>halamen/preview_mikro", // preview.php
+                //data: $("#postp").serializeArray(), // all form fields
+                success: function (data) {
+                  $('#prevpage').append(data);
+                  
+                } // success
+              }); // ajax
+          }
+          
+          //href : '<?php echo $this->webroot; ?>halamen/preview_mikro'
+          
+        }); //fancybox
+      });
     </script>
+
+
     
   </body>
 </html>

@@ -34,8 +34,8 @@
 </div>
 
 <div class="col-md-4">
-  		<a href="#" id="preview" class="home_button_main"><span class="glyphicon glyphicon-search icon_home" aria-hidden="true"></span><br/>
-  			<span>PREVIEW <br/>MIKROSKOP</span>
+  		<a href="#" id="preview" class="home_button_main"><span class="glyphicon glyphicon-blackboard icon_home" aria-hidden="true"></span><br/>
+  			<span>SCREENCAST <br/>& CONFERENCE</span>
   		</a>
 </div>
   </div>
