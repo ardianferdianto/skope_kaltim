@@ -253,6 +253,20 @@
     </script>
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    <script type="text/javascript">
+      $('#filemanger_left_ico').on('click',function(e){
+        e.preventDefault();
+        $.fancybox({
+          type: 'iframe',
+          width:'95%',
+          height:'95%',
+          autoSize: false,
+          href : '<?php echo $this->webroot; ?>js/filemanager/dialog.php'
+          
+        }); //fancybox
+      })
+    </script>
     
   </body>
 </html>
