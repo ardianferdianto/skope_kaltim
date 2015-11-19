@@ -223,12 +223,12 @@
 //styling notify
 	$.notify.addStyle('foo', {
 	  html: 
-	    "<div>" +
-	      "<div class='clearfix' style='color: black;'>" +
+	    "<div style='border:1px solid #000;-webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.40);-moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.40);box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.40);margin-top:100px;'>" +
+	      "<div class='clearfix' style='color: black;text-shadow:none;'>" +
 	        "<div class='title' data-notify-html='title'/>" +
 	        "<div class='buttons'>" +
-	          "<button class='no' style='background: lightcoral;'>Cancel</button>" +
-	          "<button class='yes' data-notify-text='button' style='background: aquamarine;'></button>" +
+	          "<button class='no' style='background: #009bcf;border:none;color:#fff;'>Cancel</button>" +
+	          "<button class='yes' data-notify-text='button' style='background: #ed0000;border:none;color:#fff;'></button>" +
 	        "</div>" +
 	      "</div>" +
 	    "</div>"
