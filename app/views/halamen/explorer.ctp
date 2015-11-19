@@ -13,7 +13,9 @@
   <?php echo $javascript->link('jwplayer.js'); ?>
   <script type="text/javascript">jwplayer.key="J0+IRhB3+LyO0fw2I+2qT2Df8HVdPabwmJVeDWFFoplmVxFF5uw6ZlnPNXo=";</script>
   <script>
-
+$("#commandpanel").click(function() {
+    req();
+});
   $(function(){  
     req();
   // Start by fetching the file data from scan.php with an AJAX request

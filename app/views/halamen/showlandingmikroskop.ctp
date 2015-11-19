@@ -264,7 +264,6 @@ $(document).on('click', '#video_choosed',function(e){
         // user completed recording and stream is available
         playerVideo.on('finishRecord', function()
         {
-            $('.insertvideomikroskop').show();
             var fileType = 'video'; // or "audio"
 
             var fileName = 'video-'+randnumber+'.webm';  // or "wav"
@@ -290,6 +289,7 @@ $(document).on('click', '#video_choosed',function(e){
                 request.open('POST', url);
                 request.send(data);
             }
+            setTimeout(function(){ $('.insertvideomikroskop').show(); }, 2000);
             
         });
 
