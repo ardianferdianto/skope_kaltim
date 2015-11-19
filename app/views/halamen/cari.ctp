@@ -408,5 +408,14 @@
 		
 	
 </script>
+
+<div id="filemanger_left_ico" style="width:250px;">
+  <img src="<?php echo $this->webroot;?>art/smicro/file_mangerico.png">
+  <span>&nbsp;FILE MANAGER / SERVER</span>
+</div>
+
 <?php endif;?>
+
+
+
 

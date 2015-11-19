@@ -203,10 +203,12 @@
     if(window.staterightside == 'notshown'){
       
       showsidebar();
+      $('#filemanger_left_ico').hide();
 
     }else{
 
       hidesidebar();
+      $('#filemanger_left_ico').show();
     }
   });
 
@@ -355,3 +357,8 @@ img.cke_video{
   height: 260px;
 }
 </style>
+
+<div id="filemanger_left_ico" style="width:210px;">
+  <img src="<?php echo $this->webroot;?>art/smicro/file_mangerico.png">
+  <span>&nbsp;FILE MANAGER / SERVER</span>
+</div>

@@ -71,3 +71,9 @@
 
 
 </div>
+
+<div id="filemanger_left_ico">
+  <img src="<?php echo $this->webroot;?>art/smicro/file_mangerico.png">
+  <span>&nbsp;FILE MANAGER / SERVER</span>
+  
+</div>
