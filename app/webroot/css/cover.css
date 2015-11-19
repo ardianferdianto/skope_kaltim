@@ -435,3 +435,22 @@ html#contentdisplayed .mastfoot p{
   margin-left: 10px;
   display: inline-block;
 }
+#filemanger_left_ico{
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 10px 10px 10px 20px;
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  cursor: pointer;
+  display: inline-block;
+  z-index: 5;
+}
+#filemanger_left_ico span{
+  font-size: 0.7em;
+}
+#filemanger_left_ico:hover{
+  color: #000;
+  background-color: rgba(255,255,255,1);
+  text-shadow:none;
+}

@@ -51,13 +51,19 @@
 
 </head>
 <body>
-
+	<?php if(!isset($withintro) || $withintro == 'yes'):?>
 	<div id="videocontent">
 		<div id="example_video_1">
 		</div>
+		<!--<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}" autoplay="true" width="auto" height="auto" controls>
+		  <source src="<?php echo $this->webroot?>opening_skope.mp4" type='video/mp4' />
+		  
+		</video>-->
 	</div>
+	<?php endif;?>
 	<div id="penelitiancontent">
 	<div class="container-fluid">
+		<?php if(!isset($nav) || $nav == 'yes'):?>
 		<div class="makecenter">
 		<a class="btn btn-warning glyphicon glyphicon-chevron-left" title="Kembali" href="<?php echo $this->webroot; ?>halamen/cari"></a>
 
@@ -66,6 +72,7 @@
 		<a class="btn btn-primary glyphicon glyphicon-plus" title="Buat" href="<?php echo $this->webroot; ?>halamen/createnew"></a>
 		<a class="btn btn-warning glyphicon glyphicon-search" title="Mikroskop" href="<?php echo $this->webroot; ?>halamen/showcam"></a>
 		</div>
+		<?php endif;?>
 	</div>
 	<div id="container">
 		
@@ -179,11 +186,13 @@
     <script src="<?php echo $this->webroot;?>js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 
+    <?php if(!isset($withintro) || $withintro == 'yes'):?>
+
     <script type="text/javascript">
     var heightWindow = $( window ).height();
     jwplayer("example_video_1").setup({
-          file: "<?php echo $this->webroot?>hasama_intro.flv",
-          image: "http://video-js.zencoder.com/oceans-clip.png",
+          file: "<?php echo $this->webroot?>opening_skope.flv",
+          image: "<?php echo $this->webroot?>cover_opening_skope.png",
           width: "100%",
           height:heightWindow,
           aspectratio: "12:5",
@@ -208,6 +217,7 @@
   	});
 	});*/
     </script>
+    <?php endif;?>
 
 </body>
 </html>

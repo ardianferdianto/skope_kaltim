@@ -1,4 +1,14 @@
-<title>Skope Conference</title>
+<img class="logosmallleft" style="top:30px;left: 110px;" src="<?php echo $this->webroot?>art/smicro_new/logo-skope-small1.png">
+<div style="position:absolute;top:30px;right:30px;">
+<ul class="navbarleftskope" style="width:500px;">
+<li>
+  <a href="<?php echo $this->webroot;?>"><img src="<?php echo $this->webroot;?>art/smicro/home_btn.png"></a>
+  <a href="<?php echo $this->webroot;?>halamen/createnew"><img src="<?php echo $this->webroot;?>art/smicro/create_btn.png"></a>
+  <a href="<?php echo $this->webroot;?>halamen/cari"><img src="<?php echo $this->webroot;?>art/smicro/browse_btn.png"></a>
+  <a href="<?php echo $this->webroot;?>halamen/showcam"><img src="<?php echo $this->webroot;?>art/smicro/search_btn.png"></a>
+</li>
+</ul>
+</div>
 
 <h1 style="font-family: -webkit-body;font-weight: bold;">Skope Conference</h1>
 <h5 style="font-family: -webkit-pictograph;">"<i>I have not failed. I've successfully discovered 10.000 things that won't work</i>" - Thomas A. Edison</h5>

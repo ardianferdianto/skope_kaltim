@@ -52,7 +52,7 @@ h2 {
 nav {
   height: 46px;
   position: relative;
-  z-index: 2147483647;
+  z-index: 2;
   zoom: 1;
   margin-top: 5px;
 }

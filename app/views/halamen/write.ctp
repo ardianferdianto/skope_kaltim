@@ -30,7 +30,7 @@
       <div class="col-md-3 leftpanel pages">
         
       </div>
-      <a href="<?php echo $this->webroot;?>halamen/cari" class="btn btn-success btn-lg">SIMPAN</a>
+      <a href="<?php echo $this->webroot;?>halamen/cari" class="btn btn-success btn-lg">SIMPAN SEMUA</a>
     </div>
     <div class="col-md-9 rightpanel" style="left: 0%;">
       <button id="commandpanel" class="btn btn-primary glyphicon glyphicon-menu-left" title="hide panel"> Tampilkan referensi</button>
@@ -38,6 +38,8 @@
         <h1 class="title_createnew"> Menulis Penelitian </h1>
         <p>Selamat datang di modul penulisan penelitian, untuk menambah halaman penelitian silahkan klik (+) disamping </p>
       </div>
+
+      <button id="livepreview" class="btn btn-info glyphicon glyphicon-new-window" title="hide panel"> Preview Penelitian</button>
 
       <div id="step1_createnew" class="wizard_createnew" >
        
@@ -201,11 +203,25 @@
     if(window.staterightside == 'notshown'){
       
       showsidebar();
+      $('#filemanger_left_ico').hide();
 
     }else{
 
       hidesidebar();
+      $('#filemanger_left_ico').show();
     }
+  });
+
+
+  $("#livepreview").click(function() {
+    $.fancybox({
+      type: 'iframe',
+      width:'95%',
+      height:'95%',
+      autoSize: false,
+      href : '<?php echo $this->webroot; ?>lessons/view/<?php echo $halamanID; ?>?withintro=no&nav=no'
+      
+    }); //fancybox
   });
 
   $( ".pollSlider" ).hover(
@@ -341,3 +357,8 @@ img.cke_video{
   height: 260px;
 }
 </style>
+
+<div id="filemanger_left_ico" style="width:210px;">
+  <img src="<?php echo $this->webroot;?>art/smicro/file_mangerico.png">
+  <span>&nbsp;FILE MANAGER / SERVER</span>
+</div>
