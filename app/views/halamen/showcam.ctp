@@ -301,6 +301,7 @@ $('#clearImg').on('click',function(){
             }*/
 
             $("#rooms-list").on('click','.join',function(){
+
                 $ids=$(this).data('userid');
                 //window.open("<?php echo $this->webroot;?>halamen/view_camera/"+ids);
                 if (event.type==='remote') {
@@ -308,6 +309,7 @@ $('#clearImg').on('click',function(){
                     if(event.userid==$ids){
                         $(this).attr('disabled',true);
                         //$('#video_client').empty().append(event.mediaElement);
+                        $('#video_client').empty();
                         document.getElementById('video_client').appendChild(div);
                         $("#video_client").on("click",".takeSnapshot",function(){
                            // http://www.rtcmulticonnection.org/docs/takeSnapshot/
@@ -393,8 +395,6 @@ $('#clearImg').on('click',function(){
                     $("#rooms-list").append('<tr><td><strong>' +trim + '</strong> is an active session.</td>' +
                         '<td><button class="join" data-userid="'+array[i]+'">Join</button></td></tr>');
                 };
-            }else{
-                $("#rooms-list").empty();
             }
         };
         function popup_editor(dataImg){

@@ -594,3 +594,19 @@
 .no-js .bk-info button {
 	display: none;
 }
+
+.book-1 .bk-front .bk-cover.yellow,.bk-cover.yellow{
+background-color: #FF924A;
+}
+
+.book-1 .bk-front .bk-cover.blue,.bk-cover.blue{
+background-color: #1BBDBF;
+}
+.book-1 .bk-front .bk-cover.green,.bk-cover.green{
+background-color: #82C671;
+}
+
+.book-1 .bk-front .bk-cover.grey,.bk-cover.grey{
+background-color: #A499B7;
+}
+

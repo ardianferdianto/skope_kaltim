@@ -61,7 +61,6 @@
 		</video>-->
 	</div>
 	<?php endif;?>
-
 	<div id="penelitiancontent">
 	<div class="container-fluid">
 		<?php if(!isset($nav) || $nav == 'yes'):?>
@@ -69,7 +68,6 @@
 		<a class="btn btn-warning glyphicon glyphicon-chevron-left" title="Kembali" href="<?php echo $this->webroot; ?>halamen/cari"></a>
 
 		<a class="btn btn-danger glyphicon glyphicon-edit" title="Edit" href="<?php echo $this->webroot; ?>halamen/write/<?php echo $lessonEdit; ?>"></a>
-		<!-- <a class="btn btn-info glyphicon glyphicon-th" title="Cari" href="<?php echo $this->webroot; ?>halamen/cari"></a> -->
 		<a class="btn btn-success glyphicon glyphicon-home" title="Awal" href="<?php echo $this->webroot; ?>"></a>
 		<a class="btn btn-primary glyphicon glyphicon-plus" title="Buat" href="<?php echo $this->webroot; ?>halamen/createnew"></a>
 		<a class="btn btn-warning glyphicon glyphicon-search" title="Mikroskop" href="<?php echo $this->webroot; ?>halamen/showcam"></a>
@@ -117,7 +115,7 @@
 	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 	
 	<?php echo $javascript->link('/wow_book/wow_book.min.js'); ?>
-	<?php// echo $javascript->link('/wow_book/stacktrace-min-0.4.js'); ?>
+	
 	
 	<?php echo $javascript->link('jquery.nanoscroller.min.js'); ?>
 	
@@ -209,7 +207,6 @@
 		$('#videocontent').fadeOut();
 	  	//$('#penelitiancontent').fadeIn();
 	}); 
-	
 
     /*var video = videojs('example_video_1').ready(function(){
   	var player = this;
