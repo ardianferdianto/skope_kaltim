@@ -13,7 +13,7 @@
 });
 function showMyDialog(e) {
 
-	var editor = CKEDITOR.instances.rich_ed,
+    var editor = CKEDITOR.instances.rich_ed,
     sel = editor.getSelection().getSelectedElement();
     var elementselected = sel.getName();
     console.log(elementselected);
@@ -28,7 +28,7 @@ function showMyDialog(e) {
         //console.log(sel.baseURI);
         //sel.selectElement(sel.getStartElement());
         var hostname = window.location.hostname;
-        var urleditor= 'http://'+hostname+'/skope/halamen/editimagemikro_full?filename='+urlimage;
+        var urleditor= 'http://'+hostname+'/skope_kaltim/halamen/editimagemikro_full?filename='+urlimage;
 
         $.fancybox({
             type: 'ajax',

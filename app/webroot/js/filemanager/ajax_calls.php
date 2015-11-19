@@ -193,6 +193,7 @@ if(isset($_GET['action']))
 			break;
 		case 'media_preview':
 			$preview_file = $_GET["file"];
+			$preview_file_flv = $_GET["fileflv"];
 			$info = pathinfo($preview_file);
 			ob_start();
 			?>
@@ -269,26 +270,57 @@ if(isset($_GET['action']))
 
 			<?php elseif(in_array(strtolower($info['extension']), $ext_video)):	?>
 
-			    <script type="text/javascript">
-			    $(document).ready(function(){
+			<?php 
+			//echo strtolower($info['extension']);
+			$real_ext = strtolower($info['extension']);
+			if($real_ext == 'flv'):?>
 
-			      $("#jquery_jplayer_1").jPlayer({
-			        ready: function () {
-			          $(this).jPlayer("setMedia", {
-				    title:"<?php $_GET['title']; ?>",
-			            m4v: "<?php echo $preview_file; ?>",
-			            ogv: "<?php echo $preview_file; ?>"
-			          });
-			        },
-			        swfPath: "js",
-				solution:"html,flash",
-			        supplied: "mp4, m4v, ogv, flv, webmv, webm",
-				smoothPlayBar: true,
-				keyEnabled: false
-			    });
+			<script type="text/javascript">
+		    $(document).ready(function(){
 
-			    });
-			  </script>
+		      $("#jquery_jplayer_1").jPlayer({
+		        ready: function () {
+		          $(this).jPlayer("setMedia", {
+			    title:"<?php $_GET['title']; ?>",
+		            
+		            flv: "<?php echo $preview_file_flv; ?>",
+		           
+		          });
+		        },
+		        swfPath: "../filemanager/js/jPlayer/jquery.jplayer",
+			solution:"flash",
+		        supplied: "flv",
+			smoothPlayBar: true,
+			keyEnabled: false
+		    });
+
+		    });
+		  	</script>
+
+			<?php else: ?>
+
+			<script type="text/javascript">
+		    $(document).ready(function(){
+
+		      $("#jquery_jplayer_1").jPlayer({
+		        ready: function () {
+		          $(this).jPlayer("setMedia", {
+			    title:"<?php $_GET['title']; ?>",
+		            m4v: "<?php echo $preview_file; ?>",
+		            flv: "<?php echo $preview_file; ?>",
+		            
+		          });
+		        },
+		        swfPath: "js",
+			solution:"html,flash",
+		        supplied: "mp4, m4v, ogv, flv, webmv, webm",
+			smoothPlayBar: true,
+			keyEnabled: false
+		    });
+
+		    });
+		  	</script>
+		  	<?php endif; ?>
 
 			<?php endif;
 

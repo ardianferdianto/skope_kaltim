@@ -107,6 +107,7 @@ class HalamenController extends AppController {
 	}
 
 	function view($id = null) {
+		$this->recursive = 1;
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid Category.', true));
 			$this->redirect(array('action'=>'index'));
