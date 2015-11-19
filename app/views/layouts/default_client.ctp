@@ -126,7 +126,7 @@
               connection.session = {
                 data : true
             };
-            connection.connect('server_room');
+            connection.openOrJoin('server_room');
             //connection.join('server_room');
             // ......................................................
             // ..................RTCMultiConnection Code.............
