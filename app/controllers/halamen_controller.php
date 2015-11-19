@@ -386,7 +386,7 @@ class HalamenController extends AppController {
 		$this->set('listGrade',$listGrade);
 
 		if(!$pelajaranId){	
-			$listLesson=$this->Halaman->Lesson->find('all');
+			$listLesson=$this->Halaman->Lesson->find('all',array('order' => array('Lesson.modified' => 'asc')));
 			$this->layout ='default';
 			$this->set('pelajaranId',$pelajaranId);
 			$this->set('kelasId',$kelasId);
@@ -395,18 +395,18 @@ class HalamenController extends AppController {
 			if($pelajaranId==="all"){
 				
 				if($kelasId==='all'){
-					$listLesson=$this->Halaman->Lesson->find('all');
+					$listLesson=$this->Halaman->Lesson->find('all',array('order' => array('Lesson.modified' => 'asc')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
 				}else if($kelasId==null){
-					$listLesson=$this->Halaman->Lesson->find('all');
+					$listLesson=$this->Halaman->Lesson->find('all',array('order' => array('Lesson.modified' => 'asc')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
 				}
 				else{
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.grade_id'=>$kelasId)));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.grade_id'=>$kelasId),'order' => array('Lesson.modified' => 'asc')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
@@ -414,17 +414,17 @@ class HalamenController extends AppController {
 			}else{
 				
 				if($kelasId==='all'){
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId)));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId),'order' => array('Lesson.modified' => 'asc')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 				}else if($kelasId==null){
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId)));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId),'order' => array('Lesson.modified' => 'asc')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
 				}
 				else{
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId,'Lesson.grade_id'=>$kelasId)));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId,'Lesson.grade_id'=>$kelasId),'order' => array('Lesson.modified' => 'asc')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 				}
@@ -672,7 +672,7 @@ class HalamenController extends AppController {
 				'Lesson.description LIKE'=>'%'.$keyword.'%'
 			)
 		);
-		$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>$conditions));
+		$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>$conditions,'order' => array('Lesson.modified' => 'asc')));
 
 		$this->set('listLesson', $listLesson);
 		$this->set('keyword',$keyword);
@@ -987,6 +987,10 @@ class HalamenController extends AppController {
 			$pathbatch=WWW_ROOT.DS.'compiler.bat';
 			system("cmd /c ".$pathbatch);
 			$this->layout = 'default_blank';
+	}
+
+	function preview_mikro(){
+		$this->layout = 'default_blank';
 	}
 }
 ?>
