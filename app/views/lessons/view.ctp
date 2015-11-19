@@ -72,6 +72,33 @@ if ($countpages % 2 == 0) :?>
     </div>
 	
 </div>
+<?php elseif ($countpages == 0) :?>
+
+
+<div class='feature'>
+	<div class="contenttextbook nano">
+		<div class="nano-content">
+			<div class="contentareablock titlearea">
+			
+            
+		</div>
+		</div>
+	</div>
+	
+</div>
+
+<div class='feature'>
+
+	<div class="bk-front">
+        <div class="bk-cover <?php echo $lesson['Lesson']['color'];?>">
+            <img style="margin-top:120px;" src="<?php echo $this->webroot;?>art/smicro/backcover.png">
+        </div>
+        <div class="bk-cover-back"></div>
+    </div>
+	
+	
+</div>
+
 <?php else: ?>
 
 

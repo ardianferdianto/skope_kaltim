@@ -138,11 +138,14 @@
 </nav>
 
 <?php endif;?>
-
+<?php if(empty($pelajaranId)):?>
 <div id="jplistpaging">
+<?php endif;?>
+	<?php if(!empty($listLesson)):?>
 	<ul class="align list">
-		<?php foreach ($listLesson as $item ): ?>
-		<li class="list-item">
+		<?php 
+		foreach ($listLesson as $item ): ?>
+		<li class="list-item" id="bukutampilan_<?php echo $item['Lesson']['id'] ?>">
 			<figure class='book'>
 				<!-- Front -->
 				<ul class='hardcover_front'>
@@ -185,6 +188,9 @@
 		</li>
 		<?php endforeach;?>
 	</ul>
+	<?php else:?>
+	<h5> Tidak ditemukan data </h5>
+	<?php endif;?>
 
 	<!-- <nav style="display: inline-block"> -->
 	<!-- panel -->
@@ -199,7 +205,11 @@
 		</div>
 	</div>
 	<!-- </nav> -->
+
+<?php if(empty($pelajaranId)):?>
 </div>
+<?php endif;?>
+
 
 <script type="text/javascript">
 	$('#jplistpaging').jplist({				
@@ -207,6 +217,9 @@
 		,itemPath: '.list-item' 
 		,panelPath: '.jplist-panel'	
 	});
+</script>
+<?php if(empty($pelajaranId)):?>
+<script type="text/javascript">
 //styling notify
 	$.notify.addStyle('foo', {
 	  html: 
@@ -233,7 +246,9 @@
 			url: "<?php echo $this->webroot;?>lessons/delete/"+$del,
 			dataType: 'html',
 			success: function(result){
-				window.location.reload(true);
+				$('#bukutampilan_'+$del).remove();
+				$.notify('Sukses menghapus data','success');
+				//window.location.reload(true);
 			}
 		});
 		//hide notification
@@ -241,7 +256,8 @@
 	});
 
 
-	$("#filtermapel").on("change",function(e){
+	$("#filtermapel").on("change",function(){
+		
 		var alamatmapel=$("#filtermapel").val();
 		var alamatkelas=$("#filterkelas").val();
 		//console.log(alamat);
@@ -253,17 +269,17 @@
 			dataType: 'html',
 			success: function(result){
 				$('#jplistpaging').html(result);
-				$('.align li').hide();
-				$('.align li').fadeIn();
+				//$('.align li').hide();
+				//$('.align li').fadeIn();
 			}
 		});
 		$("#keywordinput").val('');
-		event.preventDefault();	
+		
 		//return false;
 	});
 
-	$("#filterkelas").on("change",function(e){
-
+	$("#filterkelas").on("change",function(){
+		
 		var alamatkelas=$("#filterkelas").val();
 		var alamatmapel=$("#filtermapel").val();
 		console.log(alamatkelas);
@@ -274,12 +290,12 @@
 			dataType: 'html',
 			success: function(result){
 				$('#jplistpaging').html(result);
-				$('.align li').hide();
-				$('.align li').fadeIn();
+				//$('.align li').hide();
+				//$('.align li').fadeIn();
 			}
 		});
 		$("#keywordinput").val('');
-		event.preventDefault();
+		
 		//return false;
 	})
 
@@ -294,8 +310,8 @@
 			dataType: 'html',
 			success: function(result){
 				$('#jplistpaging').html(result);
-				$('.align li').hide();
-				$('.align li').fadeIn();
+				//$('.align li').hide();
+				//$('.align li').fadeIn();
 				$('#jplistpaging').jplist({				
 					itemsBox: '.list' 
 					,itemPath: '.list-item' 
@@ -392,5 +408,5 @@
 		
 	
 </script>
-
+<?php endif;?>
 

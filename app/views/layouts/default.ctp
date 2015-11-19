@@ -176,7 +176,7 @@
       } 
       $.fancybox({
         type: 'ajax',
-        width:350,
+        width:450,
         height:350,
         autoSize: false,
         title   : 'CONNECT MIKROSKOP',

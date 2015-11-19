@@ -25,6 +25,9 @@ class LessonsController extends AppController {
 
 	function view($id = null) {
 		
+		$withintro=$this->params['url']['withintro'];
+		$nav=$this->params['url']['nav'];
+
 		$this->Lesson->recursive = 1;
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid Lesson.', true));
@@ -42,6 +45,8 @@ class LessonsController extends AppController {
 		$this->set('pagesbook',$pagesbook);
 		$this->set('countpage',$countpage);
 		$this->layout ='default_wow';
+		$this->set('withintro',$withintro);
+		$this->set('nav',$nav);
 	}
 
 	function add() {
