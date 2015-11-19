@@ -1,4 +1,6 @@
-
+<?php if(empty($listLesson)):?>
+	<h5> Tidak ditemukan data </h5>
+<?php else:?>
 	<ul class="align list">
 	<?php foreach ($listLesson as $item ): ?>
 	<li class="list-item">
@@ -57,3 +59,4 @@
 		</div>
 	</div>
 	<!-- </nav> -->
+<?php endif;?>

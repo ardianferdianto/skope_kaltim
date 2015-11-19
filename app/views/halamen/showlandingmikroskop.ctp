@@ -23,7 +23,7 @@ $varrecorder = uniqid();
       </div>
 
       <div id="showgambarmikroskop" style="display:none;">
-        <video id="myImage" class="video-js vjs-default-skin" style="margin-left:10px;"></video>
+        <video id="myImage" class="video-js vjs-default-skin" style="margin:0 auto;margin-top:15px;"></video>
         <br/>
         <button type="button" class="btn btn-primary insertgambarmikroskop" style="display:none;">Masukkan Gambar</button>
 
@@ -40,7 +40,7 @@ $varrecorder = uniqid();
 
       <div id="showvideomikroskop" style="display:none;">
 
-        <video id="myRecordVideo" class="video-js vjs-default-skin" style="margin-left:20px;"></video>
+        <video id="myRecordVideo" class="video-js vjs-default-skin" style="margin:0 auto;margin-top:15px;"></video>
         <br/>
         <button type="button" class="btn btn-primary insertvideomikroskop" style="display:none;">Selesai</button>
 
