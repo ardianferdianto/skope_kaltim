@@ -615,7 +615,7 @@ a.pagearrow {
 
 .coverDesign h1 {
 	color: #fff;
-	font-size: 1.4em;
+	font-size: 1.3em;
 	letter-spacing: 0.05em;
 	_text-align: left;
 	text-transform: uppercase;
@@ -636,31 +636,31 @@ a.pagearrow {
 }
 
 .yellow {
-	background-color: #CCBF06;
-	background-image: -webkit-linear-gradient(#CCBF06);
-	background-image: -moz-linear-gradient(#CCBF06);
-	background-image: linear-gradient(#CCBF06);
+	background-color: #ff8132;
+	background-image: -webkit-linear-gradient(#ff8132);
+	background-image: -moz-linear-gradient(#ff8132);
+	background-image: linear-gradient(#ff8132);
 }
 
 .blue {
-	background-color: #206da1;
-	background-image: -webkit-linear-gradient(#206da1);
-	background-image: -moz-linear-gradient(#206da1);
-	background-image: linear-gradient(#206da1);
+	background-color: #00bcbc;
+	background-image: -webkit-linear-gradient(#00bcbc);
+	background-image: -moz-linear-gradient(#00bcbc);
+	background-image: linear-gradient(#00bcbc);
 }
 
 .grey {
-	background-color: #969084;
-	background-image: -webkit-linear-gradient(#969084);
-	background-image: -moz-linear-gradient(#969084);
-	background-image: linear-gradient(#969084);
+	background-color: #A499B7;
+	background-image: -webkit-linear-gradient(#A499B7);
+	background-image: -moz-linear-gradient(#A499B7);
+	background-image: linear-gradient(#A499B7);
 }
 
 .green {
-	background-color: #08a613;
-	background-image: -webkit-linear-gradient(#08a613);
-	background-image: -moz-linear-gradient(#08a613);
-	background-image: linear-gradient(#08a613);
+	background-color: #66c44e;
+	background-image: -webkit-linear-gradient(#66c44e);
+	background-image: -moz-linear-gradient(#66c44e);
+	background-image: linear-gradient(#66c44e);
 }
 
 /* Basic ribbon */

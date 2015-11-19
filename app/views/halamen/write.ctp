@@ -8,12 +8,19 @@
   </div>
 </div>
 
-<div class="inner cover animsition">
-  <div style="right: 0">
-    <a class="btn btn-primary glyphicon glyphicon-play filtering" title="View" href="<?php echo $this->webroot; ?>lessons/view/<?php echo $halamanID ?>" style="margin-right: -89.5em;"></a>
-    <a class="btn btn-success glyphicon glyphicon-home filtering" title="Awal" href="<?php echo $this->webroot; ?>" style="right: -83em;"></a>
-      
-    </div>
+<div class="inner cover animsition" style="position:relative;">
+  <img class="logosmallleft" style="top: -60px;left: 110px;" src="<?php echo $this->webroot?>art/smicro_new/logo-skope-small1.png">
+  <div style="position:absolute;top:-70px;right:0;">
+    
+    <ul class="navbarleftskope" >
+    <li>
+      <a href="<?php echo $this->webroot;?>"><img src="<?php echo $this->webroot;?>art/smicro/home_btn.png"></a>
+      <a href="<?php echo $this->webroot;?>halamen/createnew"><img src="<?php echo $this->webroot;?>art/smicro/create_btn.png"></a>
+      <a href="<?php echo $this->webroot;?>halamen/cari"><img src="<?php echo $this->webroot;?>art/smicro/browse_btn.png"></a>
+      <a href="<?php echo $this->webroot;?>halamen/showcam"><img src="<?php echo $this->webroot;?>art/smicro/search_btn.png"></a>
+    </li>
+    </ul>
+  </div>
   <div class="row" id="createnew_panel">
     <div class="col-md-3 leftpanel">
       <button class="btn btn-white bt-title">
@@ -35,9 +42,11 @@
       <div id="step1_createnew" class="wizard_createnew" >
        
       </div>
-
+      <br/>
       <button id="edit" class="btn btn-primary" style="display:none;" >Edit</button>
       <button id="delete" class="btn btn-warning" style="display:none;" >Delete</button>
+      <br/>
+      <br/>
     </div>
     <div class="pollSlider" style="display:none;right:-50px;"></div>
   </div>
@@ -264,7 +273,7 @@
           var hitung=0;
           console.log(data);
           for (var i=0; i<data.length; i++){
-              $('.col-md-3.leftpanel.pages').append('<span class="sortabledrag" id="item-'+data[i]['Halaman']['id']+'"><button class="btn btn-white bt-pages" data-order="'+i+'" data-pageid="'+data[i]['Halaman']['id']+'"><p><h4>'+data[i]['Halaman']['deskripsi_halaman']+'</h4></p><p class="hal">Page '+( parseInt(i)+1)+'</p></button></span>');
+              $('.col-md-3.leftpanel.pages').append('<span class="sortabledrag" id="item-'+data[i]['Halaman']['id']+'"><button class="btn btn-white bt-pages" data-order="'+i+'" data-pageid="'+data[i]['Halaman']['id']+'"><p><h4>'+data[i]['Halaman']['deskripsi_halaman']+'</h4></p><p class="hal">Hal: '+( parseInt(i)+1)+'</p></button></span>');
               hitung++
             //}
           }

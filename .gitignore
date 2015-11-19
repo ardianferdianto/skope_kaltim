@@ -6,6 +6,7 @@
 *.exe
 *.o
 *.so
+*.ds_store
 
 # Packages #
 ############
@@ -38,7 +39,7 @@ Thumbs.db
 #################
 
 /app/tmp/*
-/app/Config/core.php
-/app/Config/database.php
+/app/config/core.php
+/app/config/database.php
 /app/webroot/files/*
 /app/webroot/source/*

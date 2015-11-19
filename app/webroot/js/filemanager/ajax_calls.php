@@ -192,7 +192,7 @@ if(isset($_GET['action']))
 			}
 			break;
 		case 'media_preview':
-			$preview_file = $current_path . $_GET["file"];
+			$preview_file = $_GET["file"];
 			$info = pathinfo($preview_file);
 			ob_start();
 			?>

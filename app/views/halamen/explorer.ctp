@@ -10,6 +10,8 @@
     </div>
 
   </div>
+  <?php echo $javascript->link('jwplayer.js'); ?>
+  <script type="text/javascript">jwplayer.key="J0+IRhB3+LyO0fw2I+2qT2Df8HVdPabwmJVeDWFFoplmVxFF5uw6ZlnPNXo=";</script>
   <script>
 
   $(function(){  
@@ -28,7 +30,17 @@ $('ul.data').on('click', 'a.files', function (e) {
     $('#pdf').empty().append('<iframe width="100%" height="100%" name="plugin" src="'+path_fix+'" type="application/pdf"></iframe>');
   }else{
     var path_fix=$(this).data('path');
-    $('#pdf').empty().append('<iframe width="100%" height="100%" name="plugin" src="'+path_fix+'" type="application/pdf"></iframe>');
+    if(filetype=='flv'){
+          jwplayer("pdf").setup({
+                  file: path_fix,
+                  width: "100%",
+                  height:"100%",
+                  aspectratio: "12:5",
+                  autostart:true
+          });
+    }else{
+          $('#pdf').empty().append('<iframe width="100%" height="100%" name="plugin" src="'+path_fix+'" type="application/pdf"></iframe>');
+    }
   }
   return false;
 

@@ -12,7 +12,7 @@ module.exports = exports = function(app, socketCallback) {
 
     var listOfUsers = {};
     var shiftedModerationControls = {};
-
+    var count=0;
     io.sockets.on('connection', function(socket) {
         var params = socket.handshake.query;
         var socketMessageEvent = params.msgEvent || 'RTCMultiConnection-Message';
@@ -25,7 +25,6 @@ module.exports = exports = function(app, socketCallback) {
             isPublic: false,
             extra: {}
         };
-
         socket.on('become-a-public-user', function() {
             if (!listOfUsers[socket.userid]) return;
             listOfUsers[socket.userid].isPublic = true;

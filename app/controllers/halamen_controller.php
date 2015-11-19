@@ -49,6 +49,7 @@ class HalamenController extends AppController {
 		$variabelsidebar = 'taufiq keren';
 		$this->set('variabelsidebar',$variabelsidebar);
 		$this->set('positionnav','halamanhome');
+		$this->layout = 'default_home';
 	}
 	function home2(){
 		$variabelsidebar = 'taufiq keren';
@@ -484,6 +485,7 @@ class HalamenController extends AppController {
 		$kelas=$this->Halaman->Grade->find('list',array('fields'=>'Grade.title'));
 		$this->set('kelasID',$kelas);
 		$this->set('contentdisplay','content');
+		$this->set('positionnav','editordisplay');
 	}
 	function write($id){
 		$this->Halaman->recursive = 2;
@@ -515,7 +517,9 @@ class HalamenController extends AppController {
 			$this->set('pelajaranlist',$pel);
 		}
 		$this->set('halamanID',$id);
+
 		$this->set('contentdisplay','content');
+		$this->set('positionnav','editordisplay');
 	}
 	function edit_title($id){
 		$this->Halaman->recursive = 1;
@@ -776,13 +780,24 @@ class HalamenController extends AppController {
 				//var_dump($source);
 
 		}
-		$isifeature='<!doctype html>
+		$isifeature='
+		<!doctype html>
+
+		<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+		<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+		<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+		<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+		<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
 		<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 		<head>
+			<script>(function(H){H.className=H.className.replace(/\bno-js\b/,"js")})(document.documentElement)</script>
 			<meta charset="utf-8">
 			<style>
 			.js #features {
 			margin-left: -12000px; width: 100%;
+		}
+		#videocontent{
+			width: 100%;
 		}
 		</style>
 			<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
@@ -793,19 +808,37 @@ class HalamenController extends AppController {
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		    <meta name="description" content="">
+			<link rel="icon" type="image/png" href="favicon.ico"/>
 			<title>SKOPE</title>
 			
 			<!-- Bootstrap core CSS -->
+		    <link href="/skope_kaltim/css/bootstrap.min.css" rel="stylesheet">
 			<!-- CSS : implied media="all" -->
-		    <link href="css/style.css" rel="stylesheet">
-		    <link href="wow_book.css" rel="stylesheet">
-		    <link href="css/preview.css" rel="stylesheet">
-		    <link href="css/nanoscroller.css" rel="stylesheet">
-		    <link href="css/component_lesson.css" rel="stylesheet">
-			<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-		
+			<link rel="stylesheet" type="text/css" href="css/style.css" />	<link rel="stylesheet" type="text/css" href="wow_book.css" />	<link rel="stylesheet" type="text/css" href="css/preview.css" />	<link rel="stylesheet" type="text/css" href="css/nanoscroller.css" />	<link rel="stylesheet" type="text/css" href="css/component_lesson.css" />
+			<script type="text/javascript" src="js/modernizr.custom.39460.js"></script>	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+			<script type="text/javascript" src="js/jwplayer.js"></script><script type="text/javascript">jwplayer.key="J0+IRhB3+LyO0fw2I+2qT2Df8HVdPabwmJVeDWFFoplmVxFF5uw6ZlnPNXo=";
+
+
+		</script>
+
 		</head>
+
 		<body>
+			<div id="videocontent">
+				<div id="example_video_1">
+				</div>
+			</div>
+			<div id="penelitiancontent">
+			<div class="container-fluid">
+				<div class="makecenter">
+				<a class="btn btn-warning glyphicon glyphicon-chevron-left" title="Kembali" href="<?php echo $this->webroot; ?>halamen/cari"></a>
+
+				<a class="btn btn-danger glyphicon glyphicon-edit" title="Edit" href="<?php echo $this->webroot; ?>halamen/write/<?php echo $lessonEdit; ?>"></a>
+				<a class="btn btn-success glyphicon glyphicon-home" title="Awal" href="<?php echo $this->webroot; ?>"></a>
+				<a class="btn btn-primary glyphicon glyphicon-plus" title="Buat" href="<?php echo $this->webroot; ?>halamen/createnew"></a>
+				<a class="btn btn-warning glyphicon glyphicon-search" title="Mikroskop" href="<?php echo $this->webroot; ?>halamen/showcam"></a>
+				</div>
+			</div>
 			<div id="container">
 			<div id="main">
 				<img id="click_to_open" src="images/click_to_open.png" alt="click to open" />

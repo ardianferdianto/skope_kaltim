@@ -13,6 +13,9 @@
 	.js #features {
 	margin-left: -12000px; width: 100%;
 }
+#videocontent{
+	width: 100%;
+}
 </style>
 	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 	   Remove this if you use the .htaccess -->
@@ -34,10 +37,12 @@
 	<?php echo $html->css('nanoscroller'); ?>
 	<?php echo $html->css('component_lesson'); ?>
 
+
 	<!--<link href='http://fonts.googleapis.com/css?family=News+Cycle' rel='stylesheet' type='text/css'>
 	<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
 	<?php echo $javascript->link('modernizr.custom.39460.js'); ?>
 	<?php echo $javascript->link('jquery-2.1.4.min.js'); ?>
+	<!--<?php echo $javascript->link('video5.js'); ?>-->
 	<?php echo $javascript->link('jwplayer.js'); ?>
 <script type="text/javascript">jwplayer.key="J0+IRhB3+LyO0fw2I+2qT2Df8HVdPabwmJVeDWFFoplmVxFF5uw6ZlnPNXo=";
 
@@ -46,12 +51,17 @@
 
 </head>
 <body>
+
+	<div id="videocontent">
+		<div id="example_video_1">
+		</div>
+	</div>
+	<div id="penelitiancontent">
 	<div class="container-fluid">
 		<div class="makecenter">
 		<a class="btn btn-warning glyphicon glyphicon-chevron-left" title="Kembali" href="<?php echo $this->webroot; ?>halamen/cari"></a>
 
 		<a class="btn btn-danger glyphicon glyphicon-edit" title="Edit" href="<?php echo $this->webroot; ?>halamen/write/<?php echo $lessonEdit; ?>"></a>
-		<!-- <a class="btn btn-info glyphicon glyphicon-th" title="Cari" href="<?php echo $this->webroot; ?>halamen/cari"></a> -->
 		<a class="btn btn-success glyphicon glyphicon-home" title="Awal" href="<?php echo $this->webroot; ?>"></a>
 		<a class="btn btn-primary glyphicon glyphicon-plus" title="Buat" href="<?php echo $this->webroot; ?>halamen/createnew"></a>
 		<a class="btn btn-warning glyphicon glyphicon-search" title="Mikroskop" href="<?php echo $this->webroot; ?>halamen/showcam"></a>
@@ -85,6 +95,8 @@
 	</nav>
 	
 	</div> <!--! end of #container -->
+	
+	</div>
 	<footer>
 		
 	</footer>
@@ -96,7 +108,7 @@
 	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 	
 	<?php echo $javascript->link('/wow_book/wow_book.min.js'); ?>
-	<?php// echo $javascript->link('/wow_book/stacktrace-min-0.4.js'); ?>
+	
 	
 	<?php echo $javascript->link('jquery.nanoscroller.min.js'); ?>
 	
@@ -166,6 +178,36 @@
     
     <script src="<?php echo $this->webroot;?>js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+    <script type="text/javascript">
+    var heightWindow = $( window ).height();
+    jwplayer("example_video_1").setup({
+          file: "<?php echo $this->webroot?>hasama_intro.flv",
+          image: "http://video-js.zencoder.com/oceans-clip.png",
+          width: "100%",
+          height:heightWindow,
+          aspectratio: "12:5",
+          autostart:true,
+          onComplete: function() {
+          	alert('done');
+    		$('#videocontent').fadeOut();
+	  	$('#penelitiancontent').fadeIn();
+			}
+	});
+	jwplayer("example_video_1").onComplete(function() {
+		$('#videocontent').fadeOut();
+	  	//$('#penelitiancontent').fadeIn();
+	}); 
+
+    /*var video = videojs('example_video_1').ready(function(){
+  	var player = this;
+
+  	player.on('ended', function() {
+	  	$('#videocontent').fadeOut();
+	  	$('#penelitiancontent').fadeIn();
+  	});
+	});*/
+    </script>
 
 </body>
 </html>

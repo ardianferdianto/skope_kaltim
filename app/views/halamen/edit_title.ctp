@@ -31,10 +31,10 @@
               <label for="exampleInputEmail1">Warna Cover</label>
                 <?php 
                 $colors = array(
-                                "yellow"=>array('name' => 'Kuning', 'value' => "yellow",  'data-color' => '#CCBF06'),
-                                "blue"=>array('name' => 'Biru', 'value' => "blue",  'data-color' => '#206da1'),
-                                "green"=>array('name' => 'Hijau', 'value' => "green",  'data-color' => '#08a613'),
-                                "grey"=>array('name' => 'Abu-abu', 'value' => "grey",  'data-color' => '#969084'));
+                                "yellow"=>array('name' => 'Kuning', 'value' => "yellow",  'data-color' => '#FF924A'),
+                                "blue"=>array('name' => 'Biru', 'value' => "blue",  'data-color' => '#1BBDBF'),
+                                "green"=>array('name' => 'Hijau', 'value' => "green",  'data-color' => '#82C671'),
+                                "grey"=>array('name' => 'Ungu', 'value' => "grey",  'data-color' => '#A499B7'));
                 echo $form->input('Lesson.color', array('label'=>false,'class'=>'form-control','options' => $colors, 'id' => 'colorselector'));
                 ?>
                 </div>
