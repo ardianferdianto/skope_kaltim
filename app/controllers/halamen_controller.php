@@ -983,7 +983,8 @@ class HalamenController extends AppController {
 
 			// Zip archive will be created only after closing object
 			$zip->close();
-
+			$pathbatch=WWW_ROOT.DS.'compiler.bat';
+			system("cmd /c ".$pathbatch);
 			$this->layout = 'default_blank';
 	}
 }
