@@ -21,7 +21,6 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 			case 'width':
 				value=parseInt(value);
 				if(value>400){
-					alert('width = '+value);
 					value=400;
 					var tes=value.toString();
 					extraStyles.width = tes + 'px';
@@ -33,7 +32,6 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 			case 'height':
 				value=parseInt(value);
 				if(value>350){
-					alert('height = '+value);
 					value=350;
 					var tes=value.toString();
 					extraStyles.height = tes + 'px';
@@ -217,6 +215,7 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 							{
 								type : 'text',
 								id : 'poster',
+								style : 'display:none;',
 								label : lang.poster,
 								commit : commitValue,
 								setup : loadValue,
@@ -242,7 +241,7 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 								type : 'button',
 								id : 'browse',
 								hidden : 'true',
-								style : 'display:inline-block;margin-top:10px;',
+								style : 'display:none',
 								filebrowser :
 								{
 									action : 'Browse',

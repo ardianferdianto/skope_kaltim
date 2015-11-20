@@ -54,6 +54,7 @@
 	<?php if(!isset($withintro) || $withintro == 'yes'):?>
 	<div id="videocontent">
 		<div id="example_video_1">
+			<video src="<?php echo $this->webroot; ?>opening_skope.mp4" height="100%" style="margin-top:-10em;padding-top:6em;" width="100%" id="myVideo" autoplay></video>
 		</div>
 		<!--<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" poster="http://video-js.zencoder.com/oceans-clip.png" data-setup="{}" autoplay="true" width="auto" height="auto" controls>
 		  <source src="<?php echo $this->webroot?>opening_skope.mp4" type='video/mp4' />
@@ -190,7 +191,14 @@
 
     <script type="text/javascript">
     var heightWindow = $( window ).height();
-    jwplayer("example_video_1").setup({
+    $('#myvideo').attr('height',heightWindow);
+    $('#myvideo').attr('width','100%');
+    document.getElementById('myVideo').addEventListener('ended',myHandler,false);
+    function myHandler(e) {
+		//$('#videocontent').fadeOut();
+        // What you want to do after the event
+    }
+    /*jwplayer("example_video_1").setup({
           file: "<?php echo $this->webroot?>opening_skope.flv",
           image: "<?php echo $this->webroot?>cover_opening_skope.png",
           width: "100%",
@@ -202,12 +210,12 @@
     		$('#videocontent').fadeOut();
 	  	$('#penelitiancontent').fadeIn();
 			}
-	});
-	jwplayer("example_video_1").onComplete(function() {
+	});*/
+	/*jwplayer("example_video_1").onComplete(function() {
 		$('#videocontent').fadeOut();
 	  	//$('#penelitiancontent').fadeIn();
 	}); 
-
+*/
     /*var video = videojs('example_video_1').ready(function(){
   	var player = this;
 

@@ -245,7 +245,7 @@
         if(array.length>=1){
             for (var i = 0; i < array.length; i++) {
                   var nameclient=array.indexOf(array[i])
-                 $('#list').append('<h4>Client-'+nameclient+' is online</h4>')
+                 $('#list').append('<h4>Client-'+(nameclient+1)+' is online</h4>')
             };
         }
       };

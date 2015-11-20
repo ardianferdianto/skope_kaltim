@@ -78,7 +78,7 @@ $(document).on('click', '#gambar_choosed',function(e){
                         durationDisplay: false,
                         muteToggle: false,
                         volumeControl: false,
-                        fullscreenToggle: false
+                        fullscreenToggle: true
                     }
                 }
             },
