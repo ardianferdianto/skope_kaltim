@@ -386,7 +386,7 @@ class HalamenController extends AppController {
 		$this->set('listGrade',$listGrade);
 
 		if(!$pelajaranId){	
-			$listLesson=$this->Halaman->Lesson->find('all',array('order' => array('Lesson.modified' => 'asc')));
+			$listLesson=$this->Halaman->Lesson->find('all');
 			$this->layout ='default';
 			$this->set('pelajaranId',$pelajaranId);
 			$this->set('kelasId',$kelasId);
@@ -395,18 +395,18 @@ class HalamenController extends AppController {
 			if($pelajaranId==="all"){
 				
 				if($kelasId==='all'){
-					$listLesson=$this->Halaman->Lesson->find('all',array('order' => array('Lesson.modified' => 'asc')));
+					$listLesson=$this->Halaman->Lesson->find('all');
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
 				}else if($kelasId==null){
-					$listLesson=$this->Halaman->Lesson->find('all',array('order' => array('Lesson.modified' => 'asc')));
+					$listLesson=$this->Halaman->Lesson->find('all');
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
 				}
 				else{
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.grade_id'=>$kelasId),'order' => array('Lesson.modified' => 'asc')));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.grade_id'=>$kelasId)));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
@@ -414,17 +414,17 @@ class HalamenController extends AppController {
 			}else{
 				
 				if($kelasId==='all'){
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId),'order' => array('Lesson.modified' => 'asc')));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId)));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 				}else if($kelasId==null){
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId),'order' => array('Lesson.modified' => 'asc')));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId)));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
 				}
 				else{
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId,'Lesson.grade_id'=>$kelasId),'order' => array('Lesson.modified' => 'asc')));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId,'Lesson.grade_id'=>$kelasId)));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 				}
@@ -672,7 +672,7 @@ class HalamenController extends AppController {
 				'Lesson.description LIKE'=>'%'.$keyword.'%'
 			)
 		);
-		$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>$conditions,'order' => array('Lesson.modified' => 'asc')));
+		$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>$conditions));
 
 		$this->set('listLesson', $listLesson);
 		$this->set('keyword',$keyword);
@@ -831,81 +831,136 @@ class HalamenController extends AppController {
 			</div>
 			<div id="penelitiancontent">
 			<div class="container-fluid">
-				<div class="makecenter">
-				<a class="btn btn-warning glyphicon glyphicon-chevron-left" title="Kembali" href="<?php echo $this->webroot; ?>halamen/cari"></a>
-
-				<a class="btn btn-danger glyphicon glyphicon-edit" title="Edit" href="<?php echo $this->webroot; ?>halamen/write/<?php echo $lessonEdit; ?>"></a>
-				<a class="btn btn-success glyphicon glyphicon-home" title="Awal" href="<?php echo $this->webroot; ?>"></a>
-				<a class="btn btn-primary glyphicon glyphicon-plus" title="Buat" href="<?php echo $this->webroot; ?>halamen/createnew"></a>
-				<a class="btn btn-warning glyphicon glyphicon-search" title="Mikroskop" href="<?php echo $this->webroot; ?>halamen/showcam"></a>
-				</div>
 			</div>
 			<div id="container">
 			<div id="main">
 				<img id="click_to_open" src="images/click_to_open.png" alt="click to open" />
 		  		<div id="features">';
 		$isifeature.='<div class="feaature bk-book book-1 bk-bookdefault viewlesson">
-				<div class="bk-front">
-			        <div class="bk-cover">
-			            <h2>
-			                <span>'.$lesson['Lesson']['author'].'</span>
-			                <span style="text-transform:uppercase;">'.$lesson['Lesson']['title'].'</span><br/>
-			                <span style="font-size:0.5em;font-family:arial,helvetica;text-transform:lowercase;">'.$lesson['Lesson']['description'].'</span>
-			            </h2>
-			        </div>
-			        <div class="bk-cover-back"></div>
-			    </div>
-			</div>
-				<div class="feature">
+						<div class="bk-front">
+					        <div class="bk-cover '.$lesson['Lesson']['color'].'">
+					            <h2>
+					                <span>'.$lesson['Lesson']['author'].'</span>
+					                <span style="text-transform:uppercase;">'.$lesson['Lesson']['title'].'</span><br/>
+					                <span style="font-size:0.5em;font-family:arial,helvetica;">'.$lesson['Lesson']['description'].'</span>
+					            </h2>
+					        </div>
+					        <div class="bk-cover-back"></div>
+					    </div>
+					</div>
+						<div class="feature">
+							<div class="contenttextbook nano">
+								<div class="nano-content">
+									<div class="contentareablock titlearea">
+									
+					                <!--<span>'.$lesson['Lesson']['author'].'</span>-->	
+					                <h1 style="text-transform:uppercase;font-size:43px;">'.$lesson['Lesson']['title'].'</h1>
+					                <span style="font-size:1em;font-family:arial,helvetica;margin-top:10px;display:block;">'.$lesson['Lesson']['description'].'</span>
+					            	<p style="margin-top:150px;display:block;font-weight:bold;font-size:1.1em;">'.$lesson['Pelajaran']['nama'].' - '.$lesson['Grade']['details'].'</p>
+					            	<br/>
+					            	<p style="font-weight:normal;margin-top:20px;display:block;">dibuat oleh:
+					            	</p>
+									<p style="margin-top:7px;display:block;">
+					            	'.$lesson['Lesson']['author'].'
+					            	
+					            	<br/>'.nl2br($lesson['Lesson']['kelompok']).'</p>
+					            	
+								</div>
+								</div>
+							</div>
+							
+						</div>
+
+
+						<div class="feature">
+							<div class="contenttextbook nano">
+								<div class="nano-content">
+									<div class="contentareablock titlearea">
+									<img src="images/smicro/poweredby.png">
+					                
+								</div>
+								</div>
+							</div>
+							
+						</div>';
+			foreach ($isi as $item){
+				//$this->getContents($item['Halaman']['content'],'http://localhost/skope/app/webroot/','"')
+				$item['Halaman']['content']=str_replace("http://".$servername."/".$parts[1]."/app/webroot/", "files/", $item['Halaman']['content']);
+				$item['Halaman']['content']=str_replace("/".$parts[1]."/source/SKOPE/image_mikroskop/", "files/image_mikroskop/", $item['Halaman']['content']);
+				$item['Halaman']['content']=str_replace("/".$parts[1]."/source/SKOPE/video_mikroskop/", "files/video_mikroskop/", $item['Halaman']['content']);
+				$isifeature.='<div class="feature">
+								<div class="contenttextbook nano">
+									<div class="nano-content">
+										<div class="contentareablock">
+										<h2 style="font-size:33px;background-color:#66CAE8;color:#fff;padding:10px;margin-left:-10px;">'.$item['Halaman']['deskripsi_halaman'].'</h2>
+										'.$item['Halaman']['content'].'
+									</div>
+									</div>
+								</div>
+								
+							</div>';
+			}
+			$countpages = count($isi);
+			if ($countpages % 2 == 0){
+				$isifeature.= '<div class="feature">
+								<div class="bk-front">
+							        <div class="bk-cover '.$lesson['Lesson']['color'].'">
+							            <img style="margin-top:120px;" src="images/smicro/backcover.png">
+							        </div>
+							        <div class="bk-cover-back"></div>
+							    </div>
+							</div>';
+			}elseif ($countpages == 0){
+				$isifeature.='<div class="feature">
+								<div class="contenttextbook nano">
+									<div class="nano-content">
+										<div class="contentareablock titlearea">
+										
+							            
+									</div>
+									</div>
+								</div>
+								
+							</div>
+
+							<div class="feature">
+
+								<div class="bk-front">
+							        <div class="bk-cover '.$lesson['Lesson']['color'].'">
+							            <img style="margin-top:120px;" src="images/smicro/backcover.png">
+							        </div>
+							        <div class="bk-cover-back"></div>
+							    </div>
+								
+								
+							</div>';
+
+			}else{
+				$isifeature.='<div class="feature">
 					<div class="contenttextbook nano">
 						<div class="nano-content">
 							<div class="contentareablock titlearea">
 							
-			                <span>'.$lesson['Lesson']['author'].'</span>
-			                <h1 style="text-transform:uppercase;font-size:43px;">'.$lesson['Lesson']['title'].'</h1>
-			                <span style="font-size:1em;font-family:arial,helvetica;text-transform:lowercase;">'.$lesson['Lesson']['description'].'</span>
-			            	<p>Kelas :  '.$lesson['Lesson']['grade_id'].'
-			            	<br/>Pelajaran :  '.$lesson['Pelajaran']['nama'].'</p>
-			            	<br/>
-			            	<p style="font-weight:bold;">---- KELOMPOK ----</p>
-			            	<p>'.nl2br($lesson['Lesson']['kelompok']).'</p>
-			            	
+				            
 						</div>
 						</div>
 					</div>
 					
 				</div>
 
-
 				<div class="feature">
-					<div class="contenttextbook nano">
-						<div class="nano-content">
-							<div class="contentareablock titlearea">
-							
-			                
-						</div>
-						</div>
-					</div>
+
+					<div class="bk-front">
+				        <div class="bk-cover '.$lesson['Lesson']['color'].'">
+				            <img style="margin-top:120px;" src="<?php echo $this->webroot;?>art/smicro/backcover.png">
+				        </div>
+				        <div class="bk-cover-back"></div>
+				    </div>
+					
 					
 				</div>';
-			foreach ($isi as $item){
-				//$this->getContents($item['Halaman']['content'],'http://localhost/skope/app/webroot/','"')
-				$item['Halaman']['content']=str_replace("http://".$servername."/".$parts[1]."/app/webroot/", "files/", $item['Halaman']['content']);
-				$item['Halaman']['content']=str_replace("/".$parts[1]."/source/SKOPE/image_mikroskop/", "files/image_mikroskop/", $item['Halaman']['content']);
-				$item['Halaman']['content']=str_replace("/".$parts[1]."/source/SKOPE/video_mikroskop/", "files/video_mikroskop/", $item['Halaman']['content']);
-				$isifeature.='<div class="echo">
-									<div class="contenttextbook nano">
-										<div class="nano-content">
-											<div class="contentareablock">
-											<h2 style="font-size:37px;">'.$item['Halaman']['deskripsi_halaman'].'</h2>
-											 '.$item['Halaman']['content'].'
-										</div>
-										</div>
-									</div>
-									
-								</div>';
 			}
-			$isifeature.='</div><nav class="navigasiwow">
+			$isifeature.='</div><!--! end of #feature --></div><nav class="navigasiwow">
 					<ul>
 						<li><a id="first"     href="#" title="goto first page"   >First page</a></li>
 						<li><a id="back"      href="#" title="go back one page"  >Back</a></li>
@@ -941,13 +996,62 @@ class HalamenController extends AppController {
 			
 			}
 			</style>
-			
-				<script type="text/javascript" src="wow_conf.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$(".nano").nanoScroller();
+
+					$("#features").wowBook({
+						 height : 550
+						,width  : 950
+						,centeredWhenClosed : true
+						,hardcovers : true
+						,turnPageDuration : 1000
+						,numberedPages : [1,-2]
+						,controls : {
+								zoomIn    : "#zoomin",
+								zoomOut   : "#zoomout",
+								next      : "#next",
+								back      : "#back",
+								first     : "#first",
+								last      : "#last",
+								slideShow : "#slideshow",
+								flipSound : "#flipsound"
+							}
+					}).css({"display":"none", "margin":"auto"}).fadeIn(1000);
+
+					$("#cover").click(function(){
+						$.wowBook("#features").advance();
+					});
+
+				});
+			</script>
 				<script type="text/javascript" src="js/plugins.js"></script>
 				<script type="text/javascript" src="js/script.js"></script>
-			
+				<script src="js/bootstrap.min.js"></script>
+			    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+			    <script type="text/javascript">
+			    var heightWindow = $( window ).height();
+			    jwplayer("example_video_1").setup({
+			          file: "opening/opening_skope.flv",
+			          image: "opening/cover_opening_skope.png",
+			          width: "100%",
+			          height:heightWindow,
+			          aspectratio: "12:5",
+			          autostart:true,
+			          onComplete: function() {
+			          	alert("done");
+			    		$("#videocontent").fadeOut();
+				  	$("#penelitiancontent").fadeIn();
+						}
+				});
+				jwplayer("example_video_1").onComplete(function() {
+					$("#videocontent").fadeOut();
+				}); 
+			    </script>
 			</body>
 			</html>';
+
+
 			//var_dump($isifeature);exit();
 			$path=WWW_ROOT.DS.'wow_book/index.html';
 			$file = new File($path,true,0777);
@@ -984,13 +1088,9 @@ class HalamenController extends AppController {
 
 			// Zip archive will be created only after closing object
 			$zip->close();
-			$pathbatch=WWW_ROOT.DS.'compiler.bat';
-			system("cmd /c ".$pathbatch);
+			//$pathbatch=WWW_ROOT.DS.'compiler.bat';
+			//system("cmd /c ".$pathbatch);
 			$this->layout = 'default_blank';
-	}
-
-	function preview_mikro(){
-		$this->layout = 'default_blank';
 	}
 }
 ?>

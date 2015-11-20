@@ -73,7 +73,7 @@ button[disabled], input[disabled], select[disabled] {
 <script src="<?php echo $this->webroot;?>skope_node/RTCMultiConnection.js"></script>
 <script src="<?php echo $this->webroot;?>skope_node/dev/FileBufferReader.js"></script>
 
-<script src="http://localhost:9001/socket.io/socket.io.js"></script>
+<script src="http://192.168.1.144:9001/socket.io/socket.io.js"></script>
 <script>
 
 
@@ -96,7 +96,7 @@ $('#clearImg').on('click',function(){
 });
 
         var connection = new RTCMultiConnection();
-        connection.socketURL = 'http://localhost:9001/';
+        connection.socketURL = 'http://192.168.1.144:9001/';
         connection.enableFileSharing = true; // by default, it is "false".
         $('#join-room').on("click", function(e) {
             connection.join('room_server');

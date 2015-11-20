@@ -44,6 +44,7 @@ button[disabled], input[disabled], select[disabled] {
 <div id="chat-container">
     <!-- <input type="text" id="input-text-chat" placeholder="Enter Text Chat" disabled> -->
     <div id="video_server"></div>
+    <div id="video_client"></div>
     <button id="share-file" disabled>Share File</button>
     <br>
     <div id="file-container"></div>
@@ -135,6 +136,8 @@ function appendDIV(event) {
     if(n=="http"){
         //$("#isi").empty().append(str);
         $("#isi").val(str);
+
+        console.log($("#apa").serialize());
         $.ajax({
             type: "POST",
             url: "<?php echo $this->webroot; ?>halamen/process/",
@@ -169,8 +172,13 @@ function appendDIV(event) {
 
 connection.onstream = function(event) {
     //document.body.appendChild(event.mediaElement);
-    $('#video_server').append(event.mediaElement);
+    if(event.type==='local'){
+        $('#video_client').append(event.mediaElement);    
+    }else if(event.userid==='server_room2'){
+        $('#video_server').append(event.mediaElement);
+    }
     console.log(event.type);
+    console.log('user id = '+event.userid);
 
 };
 
