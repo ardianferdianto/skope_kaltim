@@ -107,12 +107,12 @@
     <script src="<?php echo $this->webroot;?>skope_node/dev/FileBufferReader.js"></script>
 
     <!-- socket.io for signaling -->
-    <script src="http://192.168.1.144:9001/socket.io/socket.io.js"></script>
+    <script src="http://localhost:9001/socket.io/socket.io.js"></script>
     <script>
 
         var connection = new RTCMultiConnection();
         //var socket=io.connect('http://localhost:9001/');
-        connection.socketURL = 'http://192.168.1.144:9001';
+        connection.socketURL = 'http://localhost:9001';
         var socket = connection.getSocket();
         function appendDIV(event) {
             $.notify("Message from server "+event.data);
@@ -176,12 +176,14 @@
         <div class="cover-container <?php if($contentdisplay == 'content'):?>contentdisplayed <?php endif;?>">
           
           <?php echo $content_for_layout;?>
-                    <div class="mastfoot">
+          <?php if(($positionnav!='editordisplay')):?>
+          <div class="mastfoot">
             <p> Hak cipta dan seluruh konten dilindungi undang undang atas nama
                 <br/>PT. Ide Hasama Indonesia &#169; 2015 made with love in Indonesia
               </p>
               <img src="<?php echo $this->webroot?>art/smicro_new/hasama_logo.png">
           </div>
+          <?php endif;?>  
         </div>
       </div>
 

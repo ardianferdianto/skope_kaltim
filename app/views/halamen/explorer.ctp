@@ -1,5 +1,7 @@
 
 <div class="filemanager">
+    <button type="button" id="autosize_ref" class="btn btn-default" style="display:none;">Matikan auto size</button>
+    <button type="button" id="autosize_ref_off" class="btn btn-danger" style="display:none;">Hidupkan auto size</button>
     <h2> REFERENSI PENELITIAN</h2>
     <div class="breadcrumbs"></div>
 

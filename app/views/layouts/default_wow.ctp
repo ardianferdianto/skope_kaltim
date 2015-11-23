@@ -16,6 +16,16 @@
 #videocontent{
 	width: 100%;
 }
+#prevpage{
+  background: #384047;
+  margin: 0 auto;
+  text-align: center;
+}
+#prevpage h3{
+  margin-bottom: 30px;
+  display: block;
+  color: #fff;
+}
 </style>
 	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
 	   Remove this if you use the .htaccess -->
@@ -36,6 +46,13 @@
 	<?php echo $html->css('/wow_book/css/preview.css'); ?>
 	<?php echo $html->css('nanoscroller'); ?>
 	<?php echo $html->css('component_lesson'); ?>
+	<?php echo $html->css('jquery.fancybox'); ?>
+
+    <?php echo $html->css('helpers/jquery.fancybox-buttons.css?v=1.0.5'); ?>
+    <?php echo $html->css('helpers/jquery.fancybox-thumbs.css?v=1.0.7'); ?>
+
+
+
 
 
 	<!--<link href='http://fonts.googleapis.com/css?family=News+Cycle' rel='stylesheet' type='text/css'>
@@ -44,6 +61,16 @@
 	<?php echo $javascript->link('jquery-2.1.4.min.js'); ?>
 	<!--<?php echo $javascript->link('video5.js'); ?>-->
 	<?php echo $javascript->link('jwplayer.js'); ?>
+
+	<?php echo $javascript->link('jquery.fancybox.pack.js'); ?>
+    <?php echo $javascript->link('/css/helpers/jquery.fancybox-buttons.js?v=1.0.5'); ?>
+    <?php echo $javascript->link('/css/helpers/jquery.fancybox-media.js?v=1.0.6'); ?>
+    <?php echo $javascript->link('/css/helpers/jquery.fancybox-thumbs.js?v=1.0.7'); ?>
+     <script type="text/javascript">
+      window.urlscriptCam = '<?php echo $this->webroot;?>js/ScriptCam-master/';
+
+    </script>
+
 <script type="text/javascript">jwplayer.key="J0+IRhB3+LyO0fw2I+2qT2Df8HVdPabwmJVeDWFFoplmVxFF5uw6ZlnPNXo=";
 
 
@@ -52,7 +79,7 @@
 </head>
 <body>
 	<?php if(!isset($withintro) || $withintro == 'yes'):?>
-	<div id="videocontent">
+	<div id="videocontent" style="position:absolute;top:0;left:0;z-index:3;">
 		<div id="example_video_1">
 			<video src="<?php echo $this->webroot; ?>opening_skope.mp4" height="100%" style="margin-top:-10em;padding-top:6em;" width="100%" id="myVideo" autoplay></video>
 		</div>
@@ -62,7 +89,7 @@
 		</video>-->
 	</div>
 	<?php endif;?>
-	<div id="penelitiancontent">
+	<div id="penelitiancontent" style="">
 	<div class="container-fluid">
 		<?php if(!isset($nav) || $nav == 'yes'):?>
 		<div class="makecenter">
@@ -71,7 +98,7 @@
 		<a class="btn btn-danger glyphicon glyphicon-edit" title="Edit" href="<?php echo $this->webroot; ?>halamen/write/<?php echo $lessonEdit; ?>"></a>
 		<a class="btn btn-success glyphicon glyphicon-home" title="Awal" href="<?php echo $this->webroot; ?>"></a>
 		<a class="btn btn-primary glyphicon glyphicon-plus" title="Buat" href="<?php echo $this->webroot; ?>halamen/createnew"></a>
-		<a class="btn btn-warning glyphicon glyphicon-search" title="Mikroskop" href="<?php echo $this->webroot; ?>halamen/showcam"></a>
+		<a id="preview_left_ico" class="btn btn-warning glyphicon glyphicon-search" title="Mikroskop" href="#"></a>
 		</div>
 		<?php endif;?>
 	</div>
@@ -190,12 +217,18 @@
     <?php if(!isset($withintro) || $withintro == 'yes'):?>
 
     <script type="text/javascript">
+
+    //$('#penelitiancontent').hide();
+
     var heightWindow = $( window ).height();
     $('#myvideo').attr('height',heightWindow);
+    
     $('#myvideo').attr('width','100%');
     document.getElementById('myVideo').addEventListener('ended',myHandler,false);
+    
     function myHandler(e) {
-		//$('#videocontent').fadeOut();
+		$('#videocontent').hide();
+		//$('#penelitiancontent').show();
         // What you want to do after the event
     }
     /*jwplayer("example_video_1").setup({

@@ -137,7 +137,7 @@
         <div class="cover-container ">
           
           <?php echo $content_for_layout;?>
-            <?php if($positionnav!='editordisplay'):?>
+            <?php if(($positionnav!='editordisplay')):?>
             <div class="mastfoot">
               
               <p> Hak cipta dan seluruh konten dilindungi undang undang atas nama

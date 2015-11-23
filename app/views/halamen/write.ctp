@@ -230,19 +230,59 @@
     }); //fancybox
   });
 
+  window.stateturnoffclicked = 'turnon';
+
+  
   $( ".pollSlider" ).hover(
-        
+  
   function () {
-    $('.rightpanel').transition({ width: '29%'});
-    $('.pollSlider').transition({ width: '70%'});
+    if(window.stateturnoffclicked == 'turnon'){
+      $('.rightpanel').transition({ width: '29%'});
+      $('.pollSlider').transition({ width: '70%'});
+      $('#autosize_ref').show();
+    }
   },
 
   function() {
+    if(window.stateturnoffclicked == 'turnon'){
     $('.rightpanel')
     .transition({ width: '75%'});
     $('.pollSlider')
     .transition({ width: '25%'});
+    $('#autosize_ref').hide();
+    }
   });
+  
+
+  $('.pollSlider').on('click','#autosize_ref',function(e){
+
+    e.preventDefault();
+    $('#autosize_ref').hide();
+    $('#autosize_ref_off').show();
+    $('.rightpanel').transition({ width: '29%'});
+    $('.pollSlider').transition({ width: '70%'});
+    //alert('asdjdsa');
+    //$('#autosize_ref').hide();
+    window.stateturnoffclicked = 'turnoff';
+
+  });
+
+
+  $('.pollSlider').on('click','#autosize_ref_off',function(e){
+
+    e.preventDefault();
+    $('#autosize_ref').show();
+    $('#autosize_ref_off').hide();
+    $('.rightpanel').transition({ width: '75%'});
+    $('.pollSlider').transition({ width: '25%'});
+    $('#autosize_ref').hide();
+    
+    //alert('asdjdsa');
+    //$('#autosize_ref').hide();
+    window.stateturnoffclicked = 'turnon';
+
+  });
+
   
 
   function showsidebar(){
@@ -357,12 +397,7 @@
 
 </script>
 
-<style>
-img.cke_video{
-  width:400px;
-  height: 260px;
-}
-</style>
+
 
 <div id="filemanger_left_ico" style="width:210px;">
   <img src="<?php echo $this->webroot;?>art/smicro/file_mangerico.png">

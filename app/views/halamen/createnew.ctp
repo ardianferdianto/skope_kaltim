@@ -50,13 +50,7 @@
 
             <div class="form-group">
               <label for="exampleInputEmail1">Kelas</label>
-              <select type="text" class="form-control" name="data[Lesson][grade_id]" id="LessonTitle">
-                <?php foreach ($kelasID as $pelajaran ):?>
-                  <option value="<?php echo $pelajaran;?>">
-                    <?php echo $pelajaran;?>
-                  </option>
-                <?php endforeach; ?>
-              </select>
+              <?php echo $form->input('Lesson.grade_id',array('label'=>false,'class'=>'form-control','options'=>$opsi));?>
             </div>
 
             <div class="form-group clearfix">

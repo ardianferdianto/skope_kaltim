@@ -36,9 +36,12 @@ div#pdf{
 	width: 95%;
 	max-width:1340px;
 	position: relative;
-	margin: 30px auto 50px;
+	margin: 0 auto 50px;
 	max-height: 522px;
 	overflow-y:scroll;
+}
+.filemanager h2{
+	margin-top: 50px;
 }
 
 @media all and (max-width: 965px) {

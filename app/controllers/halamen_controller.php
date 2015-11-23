@@ -14,28 +14,34 @@ class HalamenController extends AppController {
 		
 	}
 	function process(){
-		$bahan=$this->data["'Halaman'"]["'tes'"];
+		$bahan=$this->data["\'Halaman\'"]["\'tes\'"];
 		$ext=substr($bahan, -3);
 		if ($ext=='pdf') {
 			# code..
-			$path=WWW_ROOT."source/FILE_REFERENSI/LIBRARY/PDF/referensi".time().".".$ext;
+			$path=WWW_ROOT."source".DS."FILE_REFERENSI".DS."LIBRARY".DS."referensi".time().".".$ext;
 		} else if($ext == "jpg" or $ext == "png" or $ext == "gif"){
 			# code...
-			$path=WWW_ROOT."source/FILE_REFERENSI/LIBRARY/GAMBAR/referensi".time().".".$ext;
+			$path=WWW_ROOT."source".DS."FILE_REFERENSI".DS."LIBRARY".DS."GAMBAR".DS."referensi".time().".".$ext;
 		}
 		else{
-			$path=WWW_ROOT."source/FILE_REFERENSI/LIBRARY/DLL/referensi".time().".".$ext;
+			$path=WWW_ROOT."source".DS."FILE_REFERENSI".DS."LIBRARY".DS."DLL".DS."referensi".time().".".$ext;
 		}
 		
 		//$path=WWW_ROOT."source/image_mikroskop/share-file".$ext;
 
 		//var_dump(expression)
-    	$success =file_put_contents($path, file_get_contents($this->data["'Halaman'"]["'tes'"]));
+		$img = "";
+		$img = fopen($bahan, 'r');
+    	$success =file_put_contents($path, file_get_contents($bahan));
+    	
+		//if(!$img) die("no data fetched");
     	$this->set('result',$success);
+    	$this->set('result3',$bahan);
+    	$this->set('result2',$path);
     	if(!empty($this->data)){
-    		$this->set('result1',var_dump($this->data["'Halaman'"]["'tes'"]));	
+    		$this->set('result1',var_dump($this->data["\'Halaman\'"]["\'tes\'"]));	
     	}else{
-    		$this->set('result1','kosong');
+    		$this->set('result1','kosong broooo');
     	}
     	
 		$this->layout = 'default_blank';
@@ -58,6 +64,7 @@ class HalamenController extends AppController {
 	}
 
 	function showcam_client(){
+		$this->set('positionnav','editordisplay');
 		$this->layout = 'default_client';
 	}
 	
@@ -350,7 +357,7 @@ class HalamenController extends AppController {
 	}
 
 	function showcam(){
-		
+		$this->set('positionnav','editordisplay');
 	}
 	function view_camera($id=null){
 		$this->set('useridcam',$id);
@@ -386,7 +393,7 @@ class HalamenController extends AppController {
 		$this->set('listGrade',$listGrade);
 
 		if(!$pelajaranId){	
-			$listLesson=$this->Halaman->Lesson->find('all');
+			$listLesson=$this->Halaman->Lesson->find('all',array('order' => array('Lesson.modified' => 'ASC')));
 			$this->layout ='default';
 			$this->set('pelajaranId',$pelajaranId);
 			$this->set('kelasId',$kelasId);
@@ -395,18 +402,18 @@ class HalamenController extends AppController {
 			if($pelajaranId==="all"){
 				
 				if($kelasId==='all'){
-					$listLesson=$this->Halaman->Lesson->find('all');
+					$listLesson=$this->Halaman->Lesson->find('all',array('order' => array('Lesson.modified' => 'ASC')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
 				}else if($kelasId==null){
-					$listLesson=$this->Halaman->Lesson->find('all');
+					$listLesson=$this->Halaman->Lesson->find('all',array('order' => array('Lesson.modified' => 'ASC')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
 				}
 				else{
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.grade_id'=>$kelasId)));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.grade_id'=>$kelasId),'order' => array('Lesson.modified' => 'ASC')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
@@ -414,17 +421,17 @@ class HalamenController extends AppController {
 			}else{
 				
 				if($kelasId==='all'){
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId)));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId),'order' => array('Lesson.modified' => 'ASC')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 				}else if($kelasId==null){
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId)));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId),'order' => array('Lesson.modified' => 'ASC')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 					$this->set('kelasId',$kelasId);
 				}
 				else{
-					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId,'Lesson.grade_id'=>$kelasId)));
+					$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>array('Lesson.pelajaran_id'=>$pelajaranId,'Lesson.grade_id'=>$kelasId),'order' => array('Lesson.modified' => 'ASC')));
 					$this->layout ='default_blank';
 					$this->set('pelajaranId',$pelajaranId);
 				}
@@ -483,8 +490,8 @@ class HalamenController extends AppController {
 			$this->redirect(array('action'=>'write',$lessonID));
 
 		}
-		$kelas=$this->Halaman->Grade->find('list',array('fields'=>'Grade.title'));
-		$this->set('kelasID',$kelas);
+		$b=$this->Halaman->Grade->find('list',array('fields'=>'Grade.title'));
+		$this->set('opsi',$b);
 		$this->set('contentdisplay','content');
 		$this->set('positionnav','editordisplay');
 	}
@@ -672,7 +679,7 @@ class HalamenController extends AppController {
 				'Lesson.description LIKE'=>'%'.$keyword.'%'
 			)
 		);
-		$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>$conditions));
+		$listLesson=$this->Halaman->Lesson->find('all',array('conditions'=>$conditions,'order' => array('Lesson.modified' => 'ASC')));
 
 		$this->set('listLesson', $listLesson);
 		$this->set('keyword',$keyword);
@@ -686,6 +693,9 @@ class HalamenController extends AppController {
 
 	}
 	function showlandingmikroskop(){
+		$this->layout = 'default_blank';
+	}
+	function preview_mikro(){
 		$this->layout = 'default_blank';
 	}
 

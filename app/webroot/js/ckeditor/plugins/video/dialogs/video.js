@@ -111,6 +111,7 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 
 		onShow : function()
 		{
+			alert('sow');
 			// Clear previously saved elements.
 			this.fakeImage = this.videoNode = null;
 			// To get dimensions of poster image
@@ -143,6 +144,11 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 
 		onOk : function()
 		{
+			
+				
+			
+			
+			
 			// If there's no selected element create one. Otherwise, reuse it
 			var videoNode = null;
 			if ( !this.fakeImage )
@@ -160,6 +166,7 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 
 			var extraStyles = {}, videos = [];
 			this.commitContent( videoNode, extraStyles, videos );
+			console.log(videos[0].src);
 
 			var innerHtml = '', links = '',
 				link = lang.linkTemplate || '',
