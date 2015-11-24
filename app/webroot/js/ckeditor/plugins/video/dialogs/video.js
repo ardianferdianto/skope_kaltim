@@ -111,7 +111,6 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 
 		onShow : function()
 		{
-			alert('sow');
 			// Clear previously saved elements.
 			this.fakeImage = this.videoNode = null;
 			// To get dimensions of poster image
@@ -145,10 +144,6 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 		onOk : function()
 		{
 			
-				
-			
-			
-			
 			// If there's no selected element create one. Otherwise, reuse it
 			var videoNode = null;
 			if ( !this.fakeImage )
@@ -166,35 +161,76 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 
 			var extraStyles = {}, videos = [];
 			this.commitContent( videoNode, extraStyles, videos );
-			console.log(videos[0].src);
+			
+			var filename = videos[0].src;
+			var extension = filename.substr( (filename.lastIndexOf('.') +1) );
+			
 
-			var innerHtml = '', links = '',
-				link = lang.linkTemplate || '',
-				fallbackTemplate = lang.fallbackTemplate || '';
-			for(var i=0; i<videos.length; i++)
-			{
-				var video = videos[i];
-				if ( !video || !video.src )
-					continue;
-				innerHtml += '<cke:source src="' + video.src + '" type="' + video.type + '" />';
-				links += link.replace('%src%', video.src).replace('%type%', video.type);
-			}
-			videoNode.setHtml( innerHtml + fallbackTemplate.replace( '%links%', links ) );
+			if(extension == 'mp4'){
+				var innerHtml = '', links = '',
+					link = lang.linkTemplate || '',
+					fallbackTemplate = lang.fallbackTemplate || '';
+				for(var i=0; i<videos.length; i++)
+				{
+					var video = videos[i];
+					if ( !video || !video.src )
+						continue;
+					innerHtml += '<cke:source src="' + video.src + '" type="' + video.type + '" />';
+					links += link.replace('%src%', video.src).replace('%type%', video.type);
+				}
+				videoNode.setHtml( innerHtml + fallbackTemplate.replace( '%links%', links ) );
 
-			// Refresh the fake image.
-			var newFakeImage = editor.createFakeElement( videoNode, 'cke_video', 'video', false );
-			newFakeImage.setStyles( extraStyles );
-			if ( this.fakeImage )
-			{
-				newFakeImage.replace( this.fakeImage );
-				editor.getSelection().selectElement( newFakeImage );
-			}
-			else
-			{
-				// Insert it in a div
-				var div = new CKEDITOR.dom.element( 'DIV', editor.document );
-				editor.insertElement( div );
-				div.append( newFakeImage );
+				// Refresh the fake image.
+				var newFakeImage = editor.createFakeElement( videoNode, 'cke_video', 'video', false );
+				newFakeImage.setStyles( extraStyles );
+				if ( this.fakeImage )
+				{
+					newFakeImage.replace( this.fakeImage );
+					editor.getSelection().selectElement( newFakeImage );
+				}
+				else
+				{
+					// Insert it in a div
+					var div = new CKEDITOR.dom.element( 'DIV', editor.document );
+					editor.insertElement( div );
+					div.append( newFakeImage );
+				}
+			}else{
+
+				alert('Anda memilih file '+extension.toUpperCase()+'. Membuka halaman converter');
+
+				var hostname = window.location.hostname;
+        		var urleditor= 'http://'+hostname+'/skope_kaltim/halamen/convertvideo?filename='+filename+'&ext='+extension;
+
+				$.fancybox({
+		            type: 'ajax',
+		            width:650,
+		            height:450,
+		            autoSize: false,
+		            padding:0,
+		            title   : 'CONVERT VIDEO',
+		            content: '<div id="anotationcontainer"></div>',
+		            beforeShow : function(){
+		            $.ajax({
+		              type: "GET",
+		              dataType: "html",
+		              cache: false,
+		              url: urleditor, // preview.php
+		              //data: $("#postp").serializeArray(), // all form fields
+		              success: function (data) {
+		                $('#anotationcontainer').html('');
+		                $('#anotationcontainer').append(data);
+		              } // success
+		            }); // ajax
+		            },
+		            beforeClose : function(){
+		                $('#anotationcontainer').remove();
+		                //var oldPlayer = document.getElementById('myImage');
+		                //videojs(oldPlayer).dispose(); 
+		                //$('#mikroskoppage').html('');
+		            }
+		        });
+				
 			}
 		},
 		onHide : function()
@@ -318,45 +354,6 @@ CKEDITOR.dialog.add( 'video', function ( editor )
 								label : lang.sourceType,
 								type : 'select',
 								'default' : 'video/mp4',
-								items :
-								[
-									[ 'MP4', 'video/mp4' ],
-									[ 'WebM', 'video/webm' ]
-								],
-								commit : commitSrc,
-								setup : loadSrc
-							}]
-					},
-
-					{
-						type : 'hbox',
-						widths: [ '', '100px', '75px'],
-						children : [
-							{
-								type : 'text',
-								id : 'src1',
-								label : lang.sourceVideo,
-								commit : commitSrc,
-								setup : loadSrc
-							},
-							{
-								type : 'button',
-								id : 'browse',
-								hidden : 'true',
-								style : 'display:inline-block;margin-top:10px;',
-								filebrowser :
-								{
-									action : 'Browse',
-									target: 'info:src1',
-									url: editor.config.filebrowserVideoBrowseUrl || editor.config.filebrowserBrowseUrl
-								},
-								label : editor.lang.common.browseServer
-							},
-							{
-								id : 'type1',
-								label : lang.sourceType,
-								type : 'select',
-								'default':'video/webm',
 								items :
 								[
 									[ 'MP4', 'video/mp4' ],

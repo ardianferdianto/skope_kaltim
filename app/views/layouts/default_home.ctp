@@ -128,7 +128,7 @@
 
     <div class="site-wrapper animsition">
 
-      <!--<span><p><a href="http://localhost:8888/client.html">Skope Conference</a></p></span>-->
+      <!--<span><p><a href="http://192.168.1.130:8888/client.html">Skope Conference</a></p></span>-->
       <div class="site-wrapper-inner container-fluid">
         <div id="list" style="position: absolute;top: 0px;right: 5px;"></div>
 
@@ -207,10 +207,10 @@
     });
     </script>
     <script src="<?php echo $this->webroot;?>skope_node/RTCMultiConnection.js"></script>
-    <script src="http://localhost:9001/socket.io/socket.io.js"></script>
+    <script src="http://192.168.1.130:9001/socket.io/socket.io.js"></script>
     <script type="text/javascript">
       var connection = new RTCMultiConnection();
-      connection.socketURL = 'http://localhost:9001/';
+      connection.socketURL = 'http://192.168.1.130:9001/';
       connection.session = {
           data : true
       };

@@ -1,18 +1,10 @@
 <style>
 
-
-
-
-
 #m{
   width: 70%;
   float: left;
 }
 </style>
-
-
-
-
 
 <img class="logosmallleft" style="top:30px;left: 110px;" src="<?php echo $this->webroot?>art/smicro_new/logo-skope-small1.png">
 <div style="position:absolute;top:30px;right:-30px;">
@@ -33,9 +25,6 @@
   <img src="<?php echo $this->webroot;?>art/smicro/fa.png"><br/>
   <span>START SERVER<br/><small style="margin-top:-5px;display:block;">SCREENCAST</small></span>
 </div>
-
-  
-
 <div id="camera_container" class="row">
   <div id="videocontainer">
   </div>
@@ -128,7 +117,7 @@
 <script src="<?php echo $this->webroot;?>skope_node/RTCMultiConnection.js"></script>
 <script src="<?php echo $this->webroot;?>skope_node/dev/FileBufferReader.js"></script>
 
-<script src="http://localhost:9001/socket.io/socket.io.js"></script>
+<script src="http://192.168.1.130:9001/socket.io/socket.io.js"></script>
 <script>
 
 
@@ -157,7 +146,7 @@ $('#clearImg').on('click',function(){
 });
 
 var connection = new RTCMultiConnection();
-connection.socketURL = 'http://localhost:9001/';
+connection.socketURL = 'http://192.168.1.130:9001/';
 connection.enableFileSharing = true; // by default, it is "false".
 
 $('#join-room').on("click", function(e) {
@@ -228,7 +217,7 @@ $(document).ready(function() {
       });
   };
 
-  //var socket = io.connect('http://localhost:9001/');
+  //var socket = io.connect('http://192.168.1.130:9001/');
   /*socket.on('custom-event', function(data) {
         console.log('tes'+data);
   });*/
@@ -325,7 +314,7 @@ function appendDIV(event) {
 //var connection = new RTCMultiConnection();
 
 /*var connection = new RTCMultiConnection();
-connection.socketURL = 'http://localhost:9001/';*/
+connection.socketURL = 'http://192.168.1.130:9001/';*/
 connection.enableFileSharing = true; // by default, it is "false".
 
 

@@ -38,11 +38,11 @@
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 	// Installer
- /*   if (!file_exists(APP.'config'.DS.'install.ini')) {
+ 	/*if (!file_exists(APP.'config'.DS.'install.ini')) {
         Router::connect('/', array('plugin' => 'install' ,'controller' => 'install'));
     }else{*/
 		Router::connect('/', array('controller' => 'halamen', 'action' => 'home'));
-	//}
+	/*}*/
 	
 
 	

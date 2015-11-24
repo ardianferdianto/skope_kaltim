@@ -107,12 +107,12 @@
     <script src="<?php echo $this->webroot;?>skope_node/dev/FileBufferReader.js"></script>
 
     <!-- socket.io for signaling -->
-    <script src="http://localhost:9001/socket.io/socket.io.js"></script>
+    <script src="http://192.168.1.130:9001/socket.io/socket.io.js"></script>
     <script>
 
         var connection = new RTCMultiConnection();
-        //var socket=io.connect('http://localhost:9001/');
-        connection.socketURL = 'http://localhost:9001';
+        //var socket=io.connect('http://192.168.1.130:9001/');
+        connection.socketURL = 'http://192.168.1.130:9001';
         var socket = connection.getSocket();
         function appendDIV(event) {
             $.notify("Message from server "+event.data);
@@ -168,7 +168,7 @@
   <body>
 
     <div class="site-wrapper animsition">
-      <!-- <span><p><a href="http://localhost:8888/client.html">Skope Conference</a></p></span> -->
+      <!-- <span><p><a href="http://192.168.1.130:8888/client.html">Skope Conference</a></p></span> -->
       <div class="site-wrapper-inner">
         <!--<button id="connectnode" type="button" class="btn btn-warning btn-lg connectserver" >
             <span class="glyphicon glyphicon glyphicon-facetime-video" aria-hidden="true"></span> <br/>Connect Server

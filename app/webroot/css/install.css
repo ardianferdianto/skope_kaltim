@@ -12,8 +12,10 @@ body
 {
 text-align:center;
 font:13px Arial, Helvetica, sans-serif;
-color:#f1fbf9;
-background:#72c1b0;
+color:#000000;
+background:url(../art/install/bg_instal1.png) repeat;
+text-shadow: 0px 0px 12px rgba(255, 255, 255, 6);
+/* position: fixed; */
 }
 .clearfix:after
 {
@@ -32,6 +34,7 @@ margin:0 auto;
 text-align:left;
 width:1050px;
 padding-top:50px;
+/* float: right; */
 }
 #main{
 	float:left;
@@ -39,7 +42,18 @@ padding-top:50px;
 	margin-top:-10px;
 	position:fixed;
 }
-
+#topright{
+	position: fixed;
+	float:right;
+	right: 0;
+	top: 0;
+}
+#bottomleft{
+	position: fixed;
+	float:left;
+	left: 0;
+	bottom: -3px;
+}
 #content{
 	float:right;
 	margin:0 40px 0 0;
@@ -119,7 +133,7 @@ padding-top:50px;
 	
 }
 .menu ul li a span#sims,.menu ul li div span#sims{
-	background:transparent url(../art/install/sims-logo.png)bottom left no-repeat;
+	background:transparent url(../art/install/logo-skope-small1.png)bottom left no-repeat;
 	width:193px;
 	height:60px;
 }
@@ -135,7 +149,7 @@ padding-top:50px;
 }
 
 .menu ul li a:hover span#sims,.menu ul li span.active#sims{
-	background:transparent url(../art/install/sims-logo-active.png)bottom left no-repeat;
+	background:transparent url(../art/install/logo-skope-small1.png)bottom left no-repeat;
 }
 .menu ul li a:hover span#elips,.menu ul li span.active#elips{
 	background:transparent url(../art/install/elibs-logo-active.png)bottom left no-repeat;
@@ -146,7 +160,7 @@ padding-top:50px;
 
 .footer{
 	margin:70px 0 0;
-	color:#aff3e4;
+	color:#000000;
 }
 .special{
 	position:absolute;
@@ -189,7 +203,7 @@ width:auto;
 
 .install h1 { padding: 0px 0px 0px 20px;  }
 
-#install h2 { border-bottom: 1px dashed #d1ebe5; margin: 6px 0px 14px 0px;color: #FFFFFF; padding-bottom:6px;}
+#install h2 { border-bottom: 1px dashed #d1ebe5; margin: 6px 0px 14px 0px;color: #000000; padding-bottom:6px;}
 #install p.desc{margin:0 0 20px;}
 #install .forgot { float: right; }
 #install .input-normal{
@@ -312,7 +326,7 @@ span.agreement{
 	width:140px;
 }
 h3{
-	border-bottom: 1px dashed #d1ebe5; margin: 6px 0px 14px 0px;color: #FFFFFF; padding-bottom:6px;
+	border-bottom: 1px dashed #d1ebe5; margin: 6px 0px 14px 0px;color: #000000; padding-bottom:6px;
 }
 div.radio-set span label{
 color:#394e49;
@@ -340,6 +354,7 @@ form .error-message{
 	    color: #999999;
 	    font: 10pt 'Lucida Grande',Verdana,Arial,Helvetica,sans-serif;
 	    padding: 5px 7px;
+	    background: none repeat scroll 0 0 #eaf7dc;
 }
 #license-agreement textarea:focus{
 	border: 1px solid #569285;

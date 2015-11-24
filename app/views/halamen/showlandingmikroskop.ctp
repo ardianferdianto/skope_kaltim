@@ -293,6 +293,14 @@ $(document).on('click', '#video_choosed',function(e){
             
         });
 
+        function generateId()
+        {
+          var now = new Date();
+          return 'video' + now.getFullYear() + now.getMonth() + now.getDate() + now.getHours() + now.getMinutes() + now.getSeconds();
+        }
+
+        var videoidGenerated = generateId()
+
          $('.insertvideomikroskop').on('click', function(e){
             e.preventDefault();
             var imageinserted = videotoinsert;
@@ -300,13 +308,15 @@ $(document).on('click', '#video_choosed',function(e){
             var videoInserted = '<video id="really-cool-video" class="video-js vjs-default-skin" controls preload="auto" ><source src="<?php echo $this->webroot;?>source/SKOPE/video_mikroskop/'+imageinserted+'" type="video/webm"></video>';
 
 
-            var toencode ='<cke:video controls="controls" id="video<?php echo $varrecorder;?>"><cke:source src="<?php echo $this->webroot;?>source/SKOPE/video_mikroskop/'+imageinserted+'" type="video/webm"><cke:source src="<?php echo $this->webroot;?>source/SKOPE/video_mikroskop/'+imageinserted+'" type="video/webm"></cke:source></cke:source></cke:video>';
+            var toencode ='<cke:video controls="controls" width="400" height="300" id="'+videoidGenerated+'"><cke:source src="<?php echo $this->webroot;?>source/SKOPE/video_mikroskop/'+imageinserted+'" type="video/webm"></cke:source></cke:video>';
 
 
             var encoded = encodeURIComponent(toencode);
             
 
-            var toinserted = '<img class="cke_video" data-cke-realelement="'+encoded+'" data-cke-real-node-type="1" alt="Video" title="Video" align="" src="" data-cke-real-element-type="video" style="width: 400px; height: 300px;);" style="width:400px;height:260px;">';
+
+            var toinserted = '<img class="cke_video" data-cke-realelement="'+encoded+'" data-cke-real-node-type="1" alt="Video" title="Video" align="" src="data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==" data-cke-real-element-type="video" style="width:400px;height:300px;">';
+
             
 
             

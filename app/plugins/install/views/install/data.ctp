@@ -43,7 +43,7 @@
 	
 	<script type="text/javascript">
 	//<![CDATA[
-	Event.observe('run_install', 'click', function(event) { new Ajax.Updater('status_sims','/eteaching_sd/install/runDbApp1/run:1', {asynchronous:true, evalScripts:true, requestHeaders:['X-Update', 'status_sims']}) }, false);
+	Event.observe('run_install', 'click', function(event) { new Ajax.Updater('status_sims','/skope_kaltim/install/runDbApp1/run:1', {asynchronous:true, evalScripts:true, requestHeaders:['X-Update', 'status_sims']}) }, false);
 	//]]>
 	</script>
 	<div id="status">

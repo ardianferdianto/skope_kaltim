@@ -4,16 +4,11 @@
     <h2><?php echo $this->pageTitle; ?></h2>
 
     <p>
-		Selanjutnya anda dapat menggunakan applikasi dengan detail login sementara sbb :
+		Aplikasi ini dipersembahkan oleh:
         </p>
 <br/>
 <div class="blue_box">
-        <p>Username: <strong>admin</strong><br />
-        Password: <strong>admin123</strong></p>
-<br/>
-<span style="color:#8c1a26;">
-	*Penting!! Harap mengganti password default berikut ini setelah anda menggunakan applikasi	
-    </span>
+    <img src="<?php echo $this->webroot; ?>art/install/hasama_logo.png"> 
 </div>
 
 

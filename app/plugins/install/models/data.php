@@ -76,9 +76,11 @@ class Data extends InstallAppModel {
 			)
 		),
 		'profile_tahunBerdiri' => array(
-			'notEmpty' => array(
-				'rule' => 'notEmpty',
-				'message' => 'Data tidak boleh kosong'
+			'year' => array(
+				'notEmpty' => array(
+					'rule' => 'notEmpty',
+					'message' => 'Data tidak boleh kosong'
+				)
 			)
 		),
 	);

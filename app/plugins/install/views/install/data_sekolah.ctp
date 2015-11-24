@@ -1,5 +1,6 @@
 <div class="install form clearfix">
     <h2><?php echo $this->pageTitle; ?></h2>
+    
 	<p class="desc">Silahkan masukkan profile sekolah</p>
     <?php
 		
@@ -24,13 +25,13 @@
 		<?php
 		echo '<div class="input text">';
 		echo '<label>Tahun Berdiri</label>';
-		echo $form->year('tahunBerdiri', 1945, 2011, null, array('class'=>'year-set'), 'Pilih Tahun');	
+		echo $form->year('profile_tahunBerdiri', 1945, 2011, null, array('class'=>'year-set'), 'Pilih Tahun');	
 		echo '</div>';
 		echo $form->input('profile_telp', array('label' => 'Telpon','class'=>'input-normal'));
 
-		echo $form->input('nama_pustakawan', array('label' => 'Petugas Perpustakaan','class'=>'input-normal'));
+		/*echo $form->input('nama_pustakawan', array('label' => 'Petugas Perpustakaan','class'=>'input-normal'));
 
-		echo $form->input('kepala_pustakawan', array('label' => 'Kepala Perpustakaan','class'=>'input-normal'));
+		echo $form->input('kepala_pustakawan', array('label' => 'Kepala Perpustakaan','class'=>'input-normal'));*/
 		echo $form->input('profile_email', array('label' => 'Email Admin: ','class'=>'input-normal'));
 		
 		?>
@@ -87,6 +88,7 @@
 					</div>
 					
 					<label style="width:100%;margin:7px 0 8px">Jika anda sudah mendapatkan kode aktivasi masukkan detail sbb:</label>
+					<h3>Output :<?php echo $diZend; ?></h3>
 					<?php echo $form->input('Key.keyfeedback', array('label' => 'Kode Aktivasi <br/><small>( Kode dari costumer support )</small>','class'=>'input-normal licenseInput'));?>
 				</div>
 			</div>

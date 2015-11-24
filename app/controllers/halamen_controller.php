@@ -1102,5 +1102,66 @@ class HalamenController extends AppController {
 			//system("cmd /c ".$pathbatch);
 			$this->layout = 'default_blank';
 	}
+
+	function convertvideo($filename,$ext,$runconvert){
+
+		$videourl=$this->params['url']['filename']; //get keyword from querystring//
+		$ext=$this->params['url']['ext']; //get keyword from querystring//
+
+
+		$this->set('videourl',$videourl);
+		$this->set('ext',$ext);
+
+		
+		if(!empty($_POST['startconvert']) && !empty($_POST['extension'])){
+		
+				$getfilename = $_POST['filename'];
+				$getext = $_POST['extension'];
+				$basename = basename($getfilename);
+				//$basename = escapeshellarg($basename);
+				$basename2 = basename($getfilename,$getext);
+				$pathhash = $this->path2hash($getfilename);
+
+				$getlocationfile = $pathhash.$basename;
+				$getdatetime = date('m-d-Y_his');
+				$locationtosave = WWW_ROOT.'source'.DS.'FILE_REFERENSI'.DS.'LIBRARY'.DS.'DLL'.DS.'convert'.DS.$basename2.'_'.$getdatetime.'.mp4';
+				$ffmpegcommand = 'ffmpeg -i "'.$getlocationfile.'" -c:v libx264 -crf 19 -strict experimental "'.$locationtosave.'"';
+				exec($ffmpegcommand);
+				//echo ($ffmpegcommand);
+				//return $output;
+				
+				$this->autoRender = false;
+			    //$this->RequestHandler->respondAs('json'); // or $this->RequestHandler->respondAs('application/json'); if json is not set up with CakePHP 1.1
+			    
+			    echo $basename2.'_'.$getdatetime.'.mp4';
+
+				
+				//$this->layout = 'default_blank';	
+			
+		}
+		$this->layout = 'default_blank';	
+
+		//$this->layout = 'default_blank';	
+	}
+
+	function path2hash($path) {
+	  	// $path contains whatever you want to split
+	  	$chunks = explode('/', $path);
+
+	  	$result = array();
+	  	for ($i = 0; $i < sizeof($chunks) - 1; $i++){
+	    	array_push($result,$chunks[$i+1]);
+		}
+		
+		array_pop($result);
+		array_splice($result,0,4);
+
+
+		$filelocation = WWW_ROOT;
+		for ($a = 0; $a < sizeof($result) - 1; $a++){
+	    	$filelocation .= $result[$a+1].DS;
+		}
+		return $filelocation;
+	}
 }
 ?>

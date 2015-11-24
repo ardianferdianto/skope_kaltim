@@ -128,7 +128,7 @@
 
     <div class="site-wrapper animsition">
 
-      <!--<span><p><a href="http://localhost:8888/client.html">Skope Conference</a></p></span>-->
+      <!--<span><p><a href="http://192.168.1.130:8888/client.html">Skope Conference</a></p></span>-->
       <div class="site-wrapper-inner container-fluid">
 
         <!--<button id="connectnode" type="button" class="btn btn-warning btn-lg connectserver" >
